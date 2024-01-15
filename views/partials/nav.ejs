@@ -1,0 +1,38 @@
+<nav class="navigation-menu">
+    <div class="green-layer"></div>
+    <div class="black-layer"></div>
+    <div class="inner">
+        <ul>
+            <li><a href="/"><%= t('home') %></a>
+
+            </li>
+            <li><a href=""><%= t('portfolio') %></a></li>
+            <li><a href="#"><%= t('about') %></a>
+
+            </li>
+            <li><a href=""><%= t('contact') %></a></li>
+            <li><a href=""><%= t('services') %></a></li>
+        </ul>
+        <address>
+            <a href="mailto:globals.contactEmail"><%= globals.contactEmail %> </a><br>
+            <br><a href="tel:globals.phoneNumber"><%= globals.phoneNumber %></a>
+
+        </address>
+    </div>
+    <!-- end inner -->
+</nav>
+<!-- end navigation-menu -->
+<nav class="navbar">
+    <div class="logo"> <a href="/"><img src="images/w-logo.png" alt="Image"></a> </div>
+    <!-- end logo -->
+    <div class="email-us">Say <a href="#"><span>hello</span> <%= globals.contactEmail %></a></div>
+    <!-- end email-us -->
+    <div class="languages"> <a href="#" class="active">EN</a> <a href="#">عربي</a> </div>
+    <!-- end languages -->
+    <div class="sandwich-nav"> <b>MENU</b>
+        <div class="sandwich-btn circle" id="sandwich-btn" data-dist="7"> <span></span> <span></span> </div>
+        <!-- end sandwich-btn -->
+
+    </div>
+    <!-- end sandwich-nav -->
+</nav>

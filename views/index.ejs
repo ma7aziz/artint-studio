@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <!-- <div class="preloader">
+            <div class="inner">
+                <div class="loader">
+                    <div class="trackbar">
+                        <div class="loadbar"></div>
+                    </div>
+                </div>
+
+                <div class="holder"> <span class="typewriter" id="typewriter"></span> </div>
+
+            </div>
+
+        </div> -->
+
+        <div class="transition-overlay">
+            <div class="green-layer"></div>
+            <div class="black-layer"></div>
+        </div>
+        <!-- end transition-overlay -->
+        <!-- navbar -->
+        <%- include("./partials/nav.ejs") %>
+            <!-- end navbar -->
+            <header class="header">
+                <div class="slider">
+                    <div class="swiper-container gallery-top">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="slide-inner bg-image" data-background="images/slide01.jpg"> </div>
+                                <!-- end slide-inner -->
+                            </div>
+                            <!-- end swiper-slide -->
+                            <div class="swiper-slide">
+                                <div class="slide-inner bg-image" data-background="images/slide02.jpg"> </div>
+                                <!-- end slide-inner -->
+                            </div>
+                            <!-- end swiper-slide -->
+                            <div class="swiper-slide">
+                                <div class="slide-inner bg-image" data-background="images/slide03.jpg"> </div>
+                                <!-- end slide-inner -->
+                            </div>
+                            <!-- end swiper-slide -->
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="swiper-container gallery-thumbs">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"> Collabration
+                                <!-- <a href="#">Explore Case Study
+                                <div class="plus">+</div>
+                            </a>  -->
+                            </div>
+                            <!-- end swiper-slide -->
+                            <div class="swiper-slide"> The Biker
+                                <!-- <a href="#">Explore Case Study
+                                <div class="plus">+</div>
+                            </a>  -->
+                            </div>
+                            <!-- end swiper-slide -->
+                            <div class="swiper-slide"> Exhitibiton
+                                <!-- <a href="#">Explore Case Study
+                                <div class="plus">+</div>
+                            </a>  -->
+                            </div>
+                            <!-- end swiper-slide -->
+                        </div>
+                    </div>
+                </div>
+                <!-- end slider -->
+                <ul class="social-media">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                </ul>
+                <div class="scroll-down"><b>SCROLL DOWN</b><span></span></div>
+                <!-- end scroll-down -->
+            </header>
+            <!-- end header -->
+            <div class="header-spacing"></div>
+            <!-- end header-spacing -->
+
+            <main>
+
+            <section class="works">
+                <ul>
+                    <li class="wow fadeInUp">
+                        <figure data-tilt> <img src="images/works01.jpg" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand.png" alt="Image" class="brand">
+                                <h3>Yellow Ginger</h3>
+                                <small>UI-UX Design, WordPress</small> <a href="case-details.html">CASE DETAILS</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure data-tilt> <img src="images/works01.jpg" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand.png" alt="Image" class="brand">
+                                <h3>Red Tomato</h3>
+                                <small>Web Design, HTML, Development</small> <a href="case-details.html">CASE
+                                    DETAILS</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure data-tilt> <img src="images/works03.jpg" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                                <h3>Mr. Washington</h3>
+                                <small>App Development, UI-UX Design</small> <a href="case-details.html">CASE
+                                    DETAILS</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure data-tilt> <img src="images/works04.jpg" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand2.png" alt="Image" class="brand">
+                                <h3>House MD</h3>
+                                <small>Print Design, Branding</small> <a href="case-details.html">CASE DETAILS</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure data-tilt> <img src="images/works05.jpg" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                                <h3>Celebrity</h3>
+                                <small>UI-UX Design, WordPress</small> <a href="case-details.html">CASE DETAILS</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure data-tilt> <img src="images/works06.jpg" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                                <h3>Man in Black</h3>
+                                <small>HTML, Development</small> <a href="case-details.html">CASE DETAILS</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure data-tilt> <img src="images/works07.jpg" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand.png" alt="Image" class="brand">
+                                <h3>Old School</h3>
+                                <small>App Design, Development</small> <a href="case-details.html">CASE DETAILS</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure data-tilt> <img src="images/works08.jpg" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand2.png" alt="Image" class="brand">
+                                <h3>Paper Girl</h3>
+                                <small>UI-UX Design, HTML, Development</small> <a href="case-details.html">CASE
+                                    DETAILS</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure data-tilt> <img src="images/works09.jpg" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                                <h3>Moto Wheel</h3>
+                                <small>Branding, Print Design</small> <a href="case-details.html">CASE DETAILS</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </section>
+                <!-- end works -->
+                                
+            <section class="features-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 wow fadeInLeft">
+                            <h2><%= t('services') %></h2>
+                            <h6>All of our products exist to help you customize your website and add some advanced
+                                functionality lacks.</h6>
+                        </div>
+                        <!-- end col-5 -->
+                        <div class="col-lg-7">
+                            <div class="row inner">
+                                <div class="col-md-4 wow fadeInUp"> <img src="images/icon01.png" alt="Image">
+                                    <h4>Brand Strategy</h4>
+                                    <p>Unicord provides a fantastic living experience.</p>
+                                    <a href="#">LEARN MORE</a>
+                                </div>
+                                <!-- end col-4 -->
+                                <div class="col-md-4 wow fadeInUp"> <img src="images/icon02.png" alt="Image">
+                                    <h4>Brand Identity</h4>
+                                    <p>Website and add some advanced lacks.</p>
+                                    <a href="#">LEARN MORE</a>
+                                </div>
+                                <!-- end col-4 -->
+                                <div class="col-md-4 wow fadeInUp"> <img src="images/icon03.png" alt="Image">
+                                    <h4>Social Media Management</h4>
+                                    <p>Website and add some advanced functionality.</p>
+                                    <a href="#">LEARN MORE</a>
+                                </div>
+                                
+                            </div>
+                            <!-- end row inner -->
+                        </div>
+                        <!-- end col-7 -->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </section>
+            <!-- end features-content -->
+            <section class="full-media-content bg-image" data-background="images/hero01.jpg">
+                <div class="sides">
+                    <figure class="wow fadeInLeft"><img src="images/office01.jpg" alt="Image"></figure>
+                </div>
+                <!-- end sides -->
+                <div class="sides inner-content">
+                    <div class="inner wow fadeInUp">
+                        <h5>New Media Digital Agency</h5>
+                        <h2>INNOVASION</h2>
+                        <p>Unicord is a creative digital agency, composed of creative designers & experienced
+                            developers. You’ll have your own individual apartment and facilities which are inspired
+                            by the luxurious life you want to live.</p>
+                        <a href="#">TAKE A LOOK</a>
+                    </div>
+                    <!-- end inner -->
+                </div>
+                <!-- end sides -->
+            </section>
+                <!-- end full-media-content -->
+            <section class="logos">
+                <div class="container">
+                    <ul>
+                        <li class="wow fadeInUp">
+                            <figure> <img src="images/logo01.jpg" alt="Image">
+                                <h6>BIRD DIGITAL INC.</h6>
+                            </figure>
+                        </li>
+                        <li class="wow fadeInUp">
+                            <figure> <img src="images/logo02.jpg" alt="Image">
+                                <h6>FOX ENTERTAINMENT</h6>
+                            </figure>
+                        </li>
+                        <li class="wow fadeInUp">
+                            <figure> <img src="images/logo03.jpg" alt="Image">
+                                <h6>EAGLE SOLUTIONS</h6>
+                            </figure>
+                        </li>
+                        <li class="wow fadeInUp">
+                            <figure> <img src="images/logo04.jpg" alt="Image">
+                                <h6>DEERS MEDICAL INC.</h6>
+                            </figure>
+                        </li>
+                        <li class="wow fadeInUp">
+                            <figure> <img src="images/logo05.jpg" alt="Image">
+                                <h6>BIRD NATURAL PARKS</h6>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end container -->
+            </section>
+                <!-- end logos -->
+            <footer class="footer">
+                <div class="container wow fadeIn">
+                    <img src="images/logo.png" alt="Image">
+                    <h2>Don't hesitate and<br>
+                        talk to us?</h2>
+                    <h5>Say hello <%= globals.contactEmail %> </h5>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    </ul>
+                    <span>© 2018 Unicord | All Rights Reserved</span>
+                </div>
+                <!-- end container -->
+            </footer>
+                <!-- end footer -->
+            </main>
+            <!-- end main -->
+            <!-- <audio id="link" src="audio/link.mp3" preload="auto"></audio>
+            <audio id="hover-audio" src="audio/hover.mp3" preload="auto"></audio> -->
+
+
+            <div class="mouse-cursor cursor-outer" style="visibility: visible; transform: translate(813px, 517px);">
+            </div>
+            <div class="mouse-cursor cursor-inner" style="visibility: visible; transform: translate(992px, 69px);">
+            </div>
+
+            <%- include("./partials/scripts.ejs") -%>
+                <script>
+                    function mousecursor() {
+                        if ($("body")) {
+                            const e = document.querySelector(".cursor-inner"),
+                                t = document.querySelector(".cursor-outer");
+                            let n, i = 0,
+                                o = !1;
+                            window.onmousemove = function (s) {
+                                o || (t.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)"), e.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)", n = s.clientY, i = s.clientX
+                            }, $("body").on("mouseenter", "a, .cursor-pointer", function () {
+                                e.classList.add("cursor-hover"), t.classList.add("cursor-hover")
+                            }), $("body").on("mouseleave", "a, .cursor-pointer", function () {
+                                $(this).is("a") && $(this).closest(".cursor-pointer").length || (e.classList.remove("cursor-hover"), t.classList.remove("cursor-hover"))
+                            }), e.style.visibility = "visible", t.style.visibility = "visible"
+                        }
+                    };
+
+                    $(function () {
+                        mousecursor();
+                    });
+                </script>
+    </body>
+
+</html>
