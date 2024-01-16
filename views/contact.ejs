@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/preloader.ejs") %>
+            <!-- end transition-overlay -->
+            <!-- navbar -->
+            <%- include("./partials/nav.ejs") %>
+
+                <header class="page-header">
+                    <div class="video-bg">
+                        <video src="videos/video.mp4" autoplay muted loop></video>
+                    </div>
+                    <!-- end video-bg -->
+                    <div class="inner">
+                        <h2 data-text="<%= t('contact') %>">
+                            <%= t('contact') %>
+                        </h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, placeat possimus? Dolores
+                            aliquid rerum quas.</p>
+                    </div>
+                    <!-- end inner -->
+                    <ul class="social-media">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    </ul>
+                    <div class="scroll-down"><b>SCROLL DOWN</b><span></span></div>
+                    <!-- end scroll-down -->
+                </header>
+                <!-- end page-header -->
+                <div class="page-header-spacing"></div>
+                <main>
+                    <section class="say-hello">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3>We’d love to hear from you.<br>
+                                        Let's talk about it!</h3>
+                                </div>
+                                <!-- end col-12 -->
+                                <div class="col-md-6">
+                                    <div class="contact-box">
+                                        <span>Phone :</span>
+                                        <a href="#">
+                                            <%= globals.phoneNumber %>
+                                        </a>
+                                    </div>
+                                    <!-- end contact-box -->
+                                </div>
+                                <!-- end col-6 -->
+                                <div class="col-md-6">
+                                    <div class="contact-box">
+                                        <span>E-mail :</span>
+                                        <a href="#">
+                                            <%= globals.contactEmail %>
+                                        </a>
+                                    </div>
+                                    <!-- end contact-box -->
+                                </div>
+                                <!-- end col-6 -->
+                                <div class="col-12">
+                                    <div class="contact-box">
+                                        <span>Address :</span>
+                                        <p>
+                                            <%= globals.address %>
+                                        </p>
+                                        <a href="#" class="map-link" data-toggle="modal" data-target="#map-box">Click
+                                            for
+                                            map</a>
+                                    </div>
+                                    <!-- end contact-box -->
+                                </div>
+                                <!-- end col-12 -->
+                                <div class="col-12">
+                                    <form class="row inner" 
+                                    id="contact"
+                                    name="contact" 
+                                    method="post">
+                                        <div class="form-group  col-12">
+                                            <label><span>Your name</span></label>
+                                            <input type="text" name="name" id="name" required>
+                                        </div>
+                                        <!-- end form-group -->
+                                        <div class="form-group col-sm-6 col-12">
+                                            <label><span>Your phone Number</span></label>
+                                            <input type="text" name="phone" id="phone" required>
+                                        </div>
+                                        <!-- end form-group -->
+                                        <div class="form-group col-sm-6 col-12">
+                                            <label><span>Your e-mail</span></label>
+                                            <input type="text" name="email" id="email" >
+                                        </div>
+                                        <!-- end form-group -->
+                                        <div class="form-group col-12">
+                                            <label><span>Subject</span></label>
+                                            <input type="text" name="subject" id="subject" required>
+                                        </div>
+                                        <!-- end form-group -->
+                                        <div class="form-group col-12">
+                                            <label><span>Your message</span></label>
+                                            <textarea name="message" id="message" required></textarea>
+                                        </div>
+                                        <!-- end form-group -->
+                                        <div class="form-group col-12">
+                                            <button id="submit" type="submit" name="submit">SUBMIT</button>
+                                        </div>
+                                        <!-- end form-group -->
+                                    </form>
+                                    <!-- end form -->
+                                    <div id="success" class="alert alert-success" role="alert"> Your message was sent
+                                        successfully! We will be in touch as soon as we can. </div>
+                                    <!-- end success -->
+                                    <div id="error" class="alert alert-danger" role="alert"> Something went wrong, try
+                                        refreshing and submitting the form again. </div>
+                                    <!-- end error -->
+                                </div>
+                                <!-- end col-12 -->
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- end container -->
+                    </section>
+                </main>
+                <div id="map-box" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d216.59032801053417!2d31.191672618208152!3d30.052468766563273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584149b291dce5%3A0xbf129470d13843be!2s77%20Sudan%2C%20Al%20Moatamadeyah%2C%20Imbaba%2C%20Giza%20Governorate%203752301!5e0!3m2!1sen!2seg!4v1705405329183!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <i class="fa fa-close close" data-dismiss="modal" aria-label="Close"></i>
+                        </div>
+                        <!--end modal-content -->
+                    </div>
+                    <!-- end modal-dialog -->
+                </div>
+                <!-- end map -->
+
+                <div class="mouse-cursor cursor-outer" style="visibility: visible; transform: translate(813px, 517px);">
+                </div>
+                <div class="mouse-cursor cursor-inner" style="visibility: visible; transform: translate(992px, 69px);">
+                </div>
+                <%- include("./partials/scripts.ejs") -%>
+                <script src="js/contact.form.min.js"></script> 
+                <script src="js/jquery.form.min.js"></script> 
+                <script src="js/jquery.validate.min.js"></script> 
+                <!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCRrJ_VQvTCWM0bv_ZpLfm8j5TW-yUhX9E"></script> 
+                <script src="js/googlemaps.min.js"></script> -->
+
+    </body>
+
+</html>

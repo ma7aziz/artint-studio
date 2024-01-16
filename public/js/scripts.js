@@ -29,30 +29,12 @@
 		$("#typewriter").typewriter({
 			prefix : "",
 			text : ["Please wait", "Still loading", "Almost done"],
-			typeDelay : 100,
-			waitingTime : 1500,
+			typeDelay : 50,
+			waitingTime : 1000,
 			blinkSpeed : 800
 		});
 		
-		// NAV LINK HOVER AUDIO
-		$(".navigation-menu a")
-			.each(function(i) {
-			if (i != 0) {
-			  $("#hover-audio")
-				.clone()
-				.attr("id", "hover-audio" + i)
-				.appendTo($(this).parent());
-			}
-			$(this).data("beeper", i);
-		}).mouseenter(function() {
-			$("#hover-audio" + $(this).data("beeper"))[0].play();
-			});
-			$("#hover-audio").attr("id", "hover-audio0");
 
-			// SANDWICH MENU AUDIO
-			document.getElementById("sandwich-btn").addEventListener('click', function(e) {
-			document.getElementById("link").play();
-	  	});
 		
 
 		// PAGE TRANSITION
@@ -310,7 +292,27 @@
 	  return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offsetLeft+(elem.clientWidth/2)), 2) + Math.pow(mouseY - (elem.offsetTop+(elem.clientHeight/2)), 2)));
 	}
 	
-	
+	// mouse cursor styling and motion
+	function mousecursor() {
+		if ($("body")) {
+			const e = document.querySelector(".cursor-inner"),
+				t = document.querySelector(".cursor-outer");
+			let n, i = 0,
+				o = !1;
+			window.onmousemove = function (s) {
+				o || (t.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)"), e.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)", n = s.clientY, i = s.clientX
+			}, $("body").on("mouseenter", "a, .cursor-pointer", function () {
+				e.classList.add("cursor-hover"), t.classList.add("cursor-hover")
+			}), $("body").on("mouseleave", "a, .cursor-pointer", function () {
+				$(this).is("a") && $(this).closest(".cursor-pointer").length || (e.classList.remove("cursor-hover"), t.classList.remove("cursor-hover"))
+			}), e.style.visibility = "visible", t.style.visibility = "visible"
+		}
+	};
+
+	$(function () {
+		mousecursor();
+	});
+
 	// PARTICLES JS
 	if( document.getElementById("particles-js") ) {
         particlesJS('particles-js',

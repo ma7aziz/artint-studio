@@ -1363,98 +1363,123 @@ a {
   display: flex;
   flex-wrap: wrap;
   padding-top: 150px;
-  padding-bottom: 50px; }
+  padding-bottom: 50px;
+ }
 
   .works.two-cols ul li {
-    width: 50%; }
+    width: 50%; 
+  }
 
   .works.four-cols ul li {
-    width: 25%; }
+    width: 25%; 
+  }
   .works.four-cols ul li figure figcaption {
-    padding: 20px; }
+    padding: 20px; 
+  }
   .works.four-cols ul li figure figcaption h3 {
     font-size: 20px;
-    margin-left: -30px; }
+    margin-left: -30px; 
+  }
   .works.four-cols ul li figure figcaption small {
-    margin-bottom: 20px; }
+    margin-bottom: 20px; 
+  }
   .works ul {
 
     width: 100%;
     float: left;
     margin: 0;
-    padding: 0; }
+    padding: 0; 
+  }
     .works ul li {
       width: 33.33333%;
       float: left;
       margin: 0;
-      margin-bottom: 100px;
-      padding: 0 5%;
+      /* margin-bottom: 100px; */
+      padding: 0 ;
       list-style: none; }
 
 
-      .works ul li figure {
-        filter: grayscale(100%);
-        transition: filter 0.3s ease-in-out;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        float: left;
-        margin: 0;
-        transform-style: preserve-3d; }
-        .works ul li figure:hover {
-          filter: grayscale(0%); 
-          transition: filter 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Custom transition */
-          
-        }
-        .works ul li figure * {
-          -webkit-transition: .25s ease-in-out;
-          -moz-transition: .25s ease-in-out;
-          -ms-transition: .25s ease-in-out;
-          -o-transition: .25s ease-in-out;
-          transition: .25s ease-in-out; }
-        .works ul li figure:hover {
-          margin: 0; }
-          .works ul li figure:hover .thumb {
-            box-shadow: 4px 21px 44px -13px rgba(0, 0, 0, 0.75); }
-          .works ul li figure:hover figcaption {
-            text-shadow: 2px 10px 10px rgba(0, 0, 0, 0.35); }
-            .works ul li figure:hover figcaption a {
-              opacity: 1; }
-            .works ul li figure:hover figcaption .brand {
-              opacity: 1; }
-        .works ul li figure .thumb {
-          width: 100%; }
-        .works ul li figure figcaption {
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          padding: 0 30px;
-          padding-bottom: 50px;
-          transform: translateZ(20px); }
-          .works ul li figure figcaption .brand {
-            height: 30px;
-            margin-bottom: 40px;
-            opacity: 0; }
-          .works ul li figure figcaption h3 {
-            font-weight: 800;
-            color: #fff;
-            margin-left: -50px; }
-          .works ul li figure figcaption small {
-            font-size: 10px;
-            color: #fff;
-            display: block;
-            margin-bottom: 50px;
-            font-weight: 600; }
-          .works ul li figure figcaption a {
-            display: inline-block;
-            color: #fff;
-            font-size: 12px;
-            font-family: 'Fjalla One', sans-serif;
-            border-bottom: 2px solid #fff;
-            padding-bottom: 2px;
-            opacity: 0; }
-            .works ul li figure figcaption a:hover {
-              text-decoration: none; }
+.works ul li figure {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  float: left;
+  margin: 0;
+  transform-style: preserve-3d; 
+}
+  .works ul li figure:hover {
+    filter: grayscale(0%); 
+    transition: filter 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+    
+  }
+  .works ul li figure * {
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -ms-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out; 
+  }
+
+
+  .works ul li figure:hover {
+    margin: 0; 
+    animation:  0.5s ease-in-out;
+  }
+    /* .works ul li figure:hover .thumb {
+      box-shadow: 4px 21px 44px -13px rgba(0, 0, 0, 0.5);
+      } */
+    /* .works ul li figure:hover figcaption {
+      text-shadow: 2px 10px 10px rgba(0, 0, 0, 0.35); 
+    } */
+      /* .works ul li figure:hover figcaption a {
+        opacity: 1; 
+      }
+      .works ul li figure:hover figcaption .brand {
+        opacity: 1; 
+      } */
+  .works ul li figure .thumb {
+    width: 100%;
+    max-height: 350px;
+    }
+  .works ul li figure figcaption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0 30px;
+    padding-bottom: 50px;
+    transform: translateZ(20px); 
+  }
+  .works ul li figure figcaption .brand {
+    height: 30px;
+    margin-bottom: 40px;
+    opacity: 0; 
+    }
+  .works ul li figure figcaption h3 {
+    font-weight: 800;
+    color: #fff;
+    /* margin-left: -20px;  */
+  }
+  .works ul li figure figcaption small {
+    font-size: 10px;
+    color: #fff;
+    display: block;
+    margin-bottom: 50px;
+    font-weight: 600;
+   }
+  .works ul li figure figcaption a {
+    display: inline-block;
+    color: #fff;
+    font-size: 12px;
+    font-family: 'Fjalla One', sans-serif;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 2px;
+    opacity: 0; 
+  }
+  .works ul li figure figcaption a:hover {
+      text-decoration: none; 
+    }
 
 /* WORKS FILTER */
 .filter-bar {
@@ -2002,16 +2027,18 @@ a {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding: 150px 0;
+  padding: 50px 0;
   background: #fff; }
   .say-hello h3 {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 800;
     margin-bottom: 40px; }
   .say-hello .contact-box {
     width: 100%;
     float: left;
-    margin-bottom: 30px; }
+    margin-bottom: 30px; 
+  }
+
     .say-hello .contact-box span {
       display: block;
       color: #808080;

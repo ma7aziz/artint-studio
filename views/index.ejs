@@ -3,24 +3,8 @@
 <%- include("./partials/head.ejs") %>
 
     <body>
-        <!-- <div class="preloader">
-            <div class="inner">
-                <div class="loader">
-                    <div class="trackbar">
-                        <div class="loadbar"></div>
-                    </div>
-                </div>
-
-                <div class="holder"> <span class="typewriter" id="typewriter"></span> </div>
-
-            </div>
-
-        </div> -->
-
-        <div class="transition-overlay">
-            <div class="green-layer"></div>
-            <div class="black-layer"></div>
-        </div>
+        <!-- preloader , transition-overlay -->
+        <%- include("./partials/preloader.ejs") %>
         <!-- end transition-overlay -->
         <!-- navbar -->
         <%- include("./partials/nav.ejs") %>
@@ -50,22 +34,13 @@
                     </div>
                     <div class="swiper-container gallery-thumbs">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"> Collabration
-                                <!-- <a href="#">Explore Case Study
-                                <div class="plus">+</div>
-                            </a>  -->
+                            <div class="swiper-slide"> Innovate
                             </div>
                             <!-- end swiper-slide -->
-                            <div class="swiper-slide"> The Biker
-                                <!-- <a href="#">Explore Case Study
-                                <div class="plus">+</div>
-                            </a>  -->
+                            <div class="swiper-slide"> Integrate
                             </div>
                             <!-- end swiper-slide -->
-                            <div class="swiper-slide"> Exhitibiton
-                                <!-- <a href="#">Explore Case Study
-                                <div class="plus">+</div>
-                            </a>  -->
+                            <div class="swiper-slide"> Influence
                             </div>
                             <!-- end swiper-slide -->
                         </div>
@@ -91,77 +66,44 @@
             <section class="works">
                 <ul>
                     <li class="wow fadeInUp">
-                        <figure data-tilt> <img src="images/works01.jpg" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand.png" alt="Image" class="brand">
-                                <h3>Yellow Ginger</h3>
-                                <small>UI-UX Design, WordPress</small> <a href="case-details.html">CASE DETAILS</a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="wow fadeInUp">
-                        <figure data-tilt> <img src="images/works01.jpg" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand.png" alt="Image" class="brand">
-                                <h3>Red Tomato</h3>
-                                <small>Web Design, HTML, Development</small> <a href="case-details.html">CASE
-                                    DETAILS</a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="wow fadeInUp">
-                        <figure data-tilt> <img src="images/works03.jpg" alt="Image" class="thumb">
+                        <figure > <img src="images/work/01.jpg" alt="Image" class="thumb">
                             <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-                                <h3>Mr. Washington</h3>
-                                <small>App Development, UI-UX Design</small> <a href="case-details.html">CASE
-                                    DETAILS</a>
+                                
                             </figcaption>
                         </figure>
                     </li>
                     <li class="wow fadeInUp">
-                        <figure data-tilt> <img src="images/works04.jpg" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand2.png" alt="Image" class="brand">
-                                <h3>House MD</h3>
-                                <small>Print Design, Branding</small> <a href="case-details.html">CASE DETAILS</a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="wow fadeInUp">
-                        <figure data-tilt> <img src="images/works05.jpg" alt="Image" class="thumb">
+                        <figure > <img src="images/work/02.jpg" alt="Image" class="thumb">
                             <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-                                <h3>Celebrity</h3>
-                                <small>UI-UX Design, WordPress</small> <a href="case-details.html">CASE DETAILS</a>
+                               
                             </figcaption>
                         </figure>
                     </li>
+                   
                     <li class="wow fadeInUp">
-                        <figure data-tilt> <img src="images/works06.jpg" alt="Image" class="thumb">
+                        <figure> <img src="images/work/03.png" alt="Image" class="thumb">
                             <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-                                <h3>Man in Black</h3>
-                                <small>HTML, Development</small> <a href="case-details.html">CASE DETAILS</a>
+                           
                             </figcaption>
                         </figure>
                     </li>
                     <li class="wow fadeInUp">
-                        <figure data-tilt> <img src="images/works07.jpg" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand.png" alt="Image" class="brand">
-                                <h3>Old School</h3>
-                                <small>App Design, Development</small> <a href="case-details.html">CASE DETAILS</a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="wow fadeInUp">
-                        <figure data-tilt> <img src="images/works08.jpg" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand2.png" alt="Image" class="brand">
-                                <h3>Paper Girl</h3>
-                                <small>UI-UX Design, HTML, Development</small> <a href="case-details.html">CASE
-                                    DETAILS</a>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="wow fadeInUp">
-                        <figure data-tilt> <img src="images/works09.jpg" alt="Image" class="thumb">
+                        <figure > <img src="images/work/04.jpg" alt="Image" class="thumb">
                             <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-                                <h3>Moto Wheel</h3>
-                                <small>Branding, Print Design</small> <a href="case-details.html">CASE DETAILS</a>
+                            
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure > <img src="images/work/05.png" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+      
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <figure> <img src="images/work/06.png" alt="Image" class="thumb">
+                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
                             </figcaption>
                         </figure>
                     </li>
@@ -273,7 +215,7 @@
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                         <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
                     </ul>
-                    <span>© 2018 Unicord | All Rights Reserved</span>
+                    <span>© <%= new Date().getFullYear() %>  <%= globals.siteName %> | <%= t('copyright') %></span>
                 </div>
                 <!-- end container -->
             </footer>
@@ -291,25 +233,7 @@
 
             <%- include("./partials/scripts.ejs") -%>
                 <script>
-                    function mousecursor() {
-                        if ($("body")) {
-                            const e = document.querySelector(".cursor-inner"),
-                                t = document.querySelector(".cursor-outer");
-                            let n, i = 0,
-                                o = !1;
-                            window.onmousemove = function (s) {
-                                o || (t.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)"), e.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)", n = s.clientY, i = s.clientX
-                            }, $("body").on("mouseenter", "a, .cursor-pointer", function () {
-                                e.classList.add("cursor-hover"), t.classList.add("cursor-hover")
-                            }), $("body").on("mouseleave", "a, .cursor-pointer", function () {
-                                $(this).is("a") && $(this).closest(".cursor-pointer").length || (e.classList.remove("cursor-hover"), t.classList.remove("cursor-hover"))
-                            }), e.style.visibility = "visible", t.style.visibility = "visible"
-                        }
-                    };
-
-                    $(function () {
-                        mousecursor();
-                    });
+                    
                 </script>
     </body>
 
