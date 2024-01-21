@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="rtl" lang="ar">
+
+<%- include("./partials/head.ejs") %>
+    <style>
+       
+    </style>
+
+    <body data-theme="light"></body>
+        <%- include("./partials/nav.ejs") %>
+            <div class="container-fluid" dir="rtl">
+                <div class="d-flex justify-content-start mr-5 mb-3">
+                    <button class="btn  btn-lg btn-info" data-toggle="modal" data-target="#addProjectModal">اضافة مشروع
+                        جديد
+                    </button>
+                </div>
+                <div class="card card-body text-center">
+                    <h3>رسائل واردة</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr class="bg-secondary text-light">
+                                <th>#</th>
+                                <th>الاسم </th>
+                                <th>التاريخ</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (messages && messages.length > 0) { %>
+                            <% for (let i=0; i < messages.length; i++) { %>
+                                <tr
+                                <% if (!messages[i].read) { %>
+                                    class="bg-light-success"
+                                    <% } %>     
+                                >
+                                    <td>
+                                        <%= i + 1 %>
+                                    </td>
+                                    <td>
+                                        <%= messages[i].name %>
+                                    </td>
+                                    <td>
+                                        <%= messages[i].datetime.toLocaleString() %>
+                                    </td>
+                                    <td>
+                                        <button 
+                                            data-target="#messageDetailsModal" 
+                                            data-toggle="modal"
+                                            class="btn btn-sm btn-primary mx-1"
+                                            data-url="/admin/messages/<%= messages[i]._id %>"
+                                            >عرض</a>
+                                            <% if (!messages[i].read) { %>
+                                            <form action="/admin/messages/<%= messages[i]._id %>/edit" method="POST"
+                                                class="d-inline">
+                                                <button class="btn btn-sm btn-success ">تأكيد القراءة</button>
+
+                                            </form>
+                                            <% } %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                                <% } else { %>
+                                    <tr class="fw-bold">
+                                        <td colspan="4">لا يوجد رسائل جديدة ...</td>
+                                    </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="card card-body text-center">
+
+                    <h3>المشروعات</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>الاسم </th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (let i=0; i < projects.length; i++) { %>
+                                <tr>
+                                    <td>
+                                        <%= i + 1 %>
+                                    </td>
+                                    <td>
+                                        <%= projects[i].arabic_name %>
+                                    </td>
+                                    <td>
+                                        <a href="/projects/<%= projects[i].slug %>"
+                                            class="btn btn-sm btn-primary">عرض</a>
+                                        <a href="/projects/<%= projects[i].slug %>/edit"
+                                            class="btn btn-sm btn-info">تعديل</a>
+                                        <form action="/admin/projects/<%= projects[i].slug %>/delete" method="POST"
+                                            class="d-inline">
+                                            <button class="btn btn-sm btn-danger">حذف</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <!-- Project Modal -->
+            <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog"
+                aria-labelledby="addProjectModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header ">
+                            <h5 class="modal-title" id="addProjectModalLabel">مشروع جديد </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body modal-xl">
+                            <!-- Add project form here -->
+                            <form id="addProjectForm" action="/admin/projects/new" method="post" class=""
+                                enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="arabicProjectName"> اسم المشروع العربي </label>
+                                    <input type="text" class="form-control" name="arabic_name" id="arabicProjectName"
+                                        placeholder=" اسم المشروع العربي " required />
+                                    <p class="invlid-feedback"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="englishProjectName"> اسم المشروع الانجليزي </label>
+                                    <input type="text" class="form-control" name="english_name" id="englishProjectName"
+                                        placeholder=" اسم المشروع الانجليزي " required />
+                                    <p class="invlid-feedback"></p>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="arabicProjectDescription"> وصف المشروع العربي </label>
+                                    <input type="text" class="form-control" name="arabic_description"
+                                        id="arabicProjectDescription" placeholder=" وصف المشروع العربي " required />
+                                    <p class="invlid-feedback"></p>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="englishProjectDescription"> وصف المشروع الانجليزي </label>
+                                    <input type="text" class="form-control" name="english_description"
+                                        id="englishProjectDescription" placeholder=" وصف المشروع الانجليزي " required />
+                                    <p class="invlid-feedback"></p>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Slug</label>
+                                    <input type="text" class="form-control" name="slug" id="slug" placeholder="Slug"
+                                        required />
+                                    <p class="invlid-feedback"></p>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="">الصورة الرئيسية</label>
+                                    <input type="file" name="coverImage" class="form-control" id="projectImage"
+                                        placeholder="صورة المشروع" required />
+                                    <p class="invlid-feedback"></p>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="">الصور </label>
+                                    <input type="file" name="images" class="form-control" id="projectImages"
+                                        placeholder="صور المشروع" required multiple />
+                                    <p class="invlid-feedback"></p>
+
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
+                            <button type="submit" class="btn btn-primary mx-1" id="addProjectBtn">حفظ</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Project Modal -->
+            <!-- message Modal  -->
+            <!-- Message Details Modal -->
+            <div class="modal fade" id="messageDetailsModal" tabindex="-1" role="dialog"
+                aria-labelledby="messageDetailsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="messageDetailsModalLabel">تفاصيل الرسالة</h5>
+                            
+                        </div>
+                        <div class="modal-body text-right" >
+                            <!-- Message details will be displayed here -->
+                            <div class="card card-body">
+                                <h3 class="text-primary">الاسم</h3>
+                                <p id="messageName"></p>
+                                <hr>
+                                <h3 class="text-primary">البريد الالكتروني</h3>
+                                <p id="messageEmail"></p>
+                                <hr>
+                                <h3 class="text-primary">الهاتف</h3>
+                                <p id="messagePhone"></p>
+                                <hr>
+                                <h3 class="text-primary">وقت الارسال</h3>
+                                <p id="messageDatetime"></p>
+                                <hr>
+                                <h3 class="text-primary">الرسالة</h3>
+                                <p id="messageBody"></p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include("./partials/scripts.ejs") %>
+            <script>
+
+                $(document).ajaxSuccess(function (event, xhr, settings) {
+                    // Handle successful AJAX responses globally
+                    if (isAjaxRequest) {
+                        const data = xhr.responseJSON;
+                        if (data && data.message) {
+                            // Update your HTML element (e.g., a notification div)
+                            $('#messageContainer').text(data.message);
+                        }
+                        
+                    }
+                });
+                $(document).ajaxError(function (event, xhr, settings, error) {
+                // Handle AJAX errors globally
+                if (isAjaxRequest) {
+                    console.error('Global AJAX Error:', error);
+                    // You can add your error handling logic here
+                    
+                }
+            });
+            </script>
+                <script>
+                    (function () {
+                        'use strict'
+
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.querySelectorAll('.needs-validation')
+
+                        // Loop over them and prevent submission
+                        Array.prototype.slice.call(forms)
+                            .forEach(function (form) {
+                                form.addEventListener('submit', function (event) {
+                                    if (!form.checkValidity()) {
+                                        event.preventDefault()
+                                        event.stopPropagation()
+                                    }
+
+                                    form.classList.add('was-validated')
+                                }, false)
+                            })
+                    })()
+                </script>
+
+                <!-- DISPLAY MESSGAE  -->
+
+                <script>    
+        // Add event listener to the messageDetailsModal when it is shown
+            $('#messageDetailsModal').on('show.bs.modal', function (event) {
+                // Get the related target that triggered the modal
+                var relatedTarget = event.relatedTarget;
+                url = relatedTarget.dataset.url;
+                // Make an ajax request to get the message details
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function (data) {
+                        console.log(data)
+                        // Display the message details in the modal
+                        $('#messageName').text(data.name);
+                        $('#messageEmail').text(data.email);
+                        $('#messagePhone').text(data.phone);
+                        $('#messageDatetime').text(data.datetime);
+                        $('#messageBody').text(data.message);
+
+                    }
+                });
+        });
+    </script>
+    
+        <!-- update message read status  -->
+    </body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/preloader.ejs") %>
+    <!-- end transition-overlay -->
+    <!-- navbar -->
+    <%- include("./partials/nav.ejs") %>
+    <header class="page-header">
+        <div class="video-bg">
+            <video src="videos/video.mp4" autoplay muted loop></video>
+        </div>
+        <!-- end video-bg -->
+        <div class="inner">
+            <h2 data-text="<%= t('portfolio') %>">
+                <%= t('portfolio') %>
+            </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, placeat possimus? Dolores
+                aliquid rerum quas.</p>
+        </div>
+        <!-- end inner -->
+        <ul class="social-media">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+        </ul>
+        <div class="scroll-down"><b>SCROLL DOWN</b><span></span></div>
+        <!-- end scroll-down -->
+    </header>
+    <div class="page-header-spacing"></div>
+    <main>
+        <section class="works">
+        <div class="container">
+        <div class="filter-bar">
+         <div class="filter-btn">
+             <div class="dots-menu">
+            <div class="pix"></div>
+            <div class="pix"></div>
+            <div class="pix"></div>
+            <div class="pix"></div>
+            <div class="pix"></div>
+            <div class="pix"></div>
+            <div class="pix"></div>
+            <div class="pix"></div>
+            <div class="pix"></div>
+        </div>
+        <!-- end dots-menu -->
+         <span>FILTER</span>
+         </div>
+         <!-- end filter-btn -->
+        <ol class="works-filter">
+            <li><a href="javascript:void(0);" data-filter="*" class="current">ALL</a></li>
+            <li><a href="javascript:void(0);" data-filter=".one">UI-UX DESIGN</a></li>
+            <li><a href="javascript:void(0);" data-filter=".two">DEVELOPMENT</a></li>
+            <li><a href="javascript:void(0);" data-filter=".three">WORDPRESS</a></li>
+            <li><a href="javascript:void(0);" data-filter=".four">PRINT</a></li>
+            <li><a href="javascript:void(0);" data-filter=".five">MOBILE APP</a></li>
+        </ol>
+         </div>
+         <!-- end filter-bar -->
+         </div>
+         <!-- end container -->
+         <ul>
+            <li class="wow fadeInUp">
+                <figure > <img src="images/work/01.jpg" alt="Image" class="thumb">
+                    <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                        
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="wow fadeInUp">
+                <figure > <img src="images/work/02.jpg" alt="Image" class="thumb">
+                    <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                       
+                    </figcaption>
+                </figure>
+            </li>
+           
+            <li class="wow fadeInUp">
+                <figure> <img src="images/work/03.png" alt="Image" class="thumb">
+                    <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                   
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="wow fadeInUp">
+                <figure > <img src="images/work/04.jpg" alt="Image" class="thumb">
+                    <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                    
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="wow fadeInUp">
+                <figure > <img src="images/work/05.png" alt="Image" class="thumb">
+                    <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="wow fadeInUp">
+                <figure> <img src="images/work/06.png" alt="Image" class="thumb">
+                    <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="wow fadeInUp">
+                <figure > <img src="images/work/05.png" alt="Image" class="thumb">
+                    <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+
+                    </figcaption>
+                </figure>
+            </li>
+            <li class="wow fadeInUp">
+                <figure> <img src="images/work/06.png" alt="Image" class="thumb">
+                    <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
+        </section>
+        <!-- end works -->
+        
+        <%- include("./partials/footer.ejs") -%> 
+        <!-- end footer --> 
+        </main>
+        <%- include("./partials/scripts.ejs") -%> 
+</body>
+</html>

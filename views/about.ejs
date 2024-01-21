@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/preloader.ejs") %>
+            <%- include("./partials/nav.ejs") %>
+
+                <header class="page-header">
+                    <div class="video-bg">
+                        <video src="videos/video.mp4" autoplay muted loop></video>
+                    </div>
+                    <!-- end video-bg -->
+                    <div class="inner">
+                        <h2 data-text="<%= t('about') %>">
+                            <%= t('about') %>
+                        </h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, placeat possimus? Dolores
+                            aliquid rerum quas.</p>
+                    </div>
+                    <!-- end inner -->
+                    <ul class="social-media">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    </ul>
+                    <div class="scroll-down"><b>SCROLL DOWN</b><span></span></div>
+                    <!-- end scroll-down -->
+                </header>
+                <!-- end page-header -->
+                <div class="page-header-spacing"></div>
+
+                <main>
+                   <section class="introduction">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <h2>More than a passtime
+                                    it is a heritage </h2>
+                                <h6>Setting a financial operation apart from the crowd</h6>
+                            </div>
+                            <!-- end col-5 -->
+                            <div class="col-lg-7">
+                                <h4>We are a team of multi-skilled and curious <span>digital specialists</span> who are
+                                    always up for a challenge and learning as fast as digital is changing.</h4>
+                                <p>Make sure your social media is up to date with all your latest developments and
+                                    promotion and try and get the local communities awareness of your achievements.</p>
+                                <p>Producing notable, original work requires more than a strategy, <span>beautiful
+                                        design</span>, well structured development or a responsive layout. Remarkable
+                                    work is created only when together, with our clients, we follow these three
+                                    principles</p>
+                            </div>
+                            <!-- end col-7 -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end container -->
+                    </section>
+                    <section class="listing-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4" >
+                                    <img src="/images/w-logo.png" alt="">
+                                </div>
+                                <div class="col-md-4">
+                                    <h3>Have An Idea .. ?</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et itaque laboriosam mollitia debitis aliquam ducimus tempora placeat voluptate quae dolore.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <a class="contact-link" >Contact Us</a>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- end container -->
+                    </section>
+                    <section class="features-content">
+                        <div class="container">
+                               <div class="row justify-content-center text-center">
+                               <div class="col-12">
+                                    <h2>Our Services </h2>
+                              <h5>Your website and add some advanced functionality lacks.</h5>
+                               </div>
+                               <!-- end col-12 -->
+                                <div class="col-lg-4"> <img src="images/icon01.png" alt="Image">
+                                  <h4>UI-UX DESIGN</h4>
+                                  <p>Unicord provides a fantastic living experience.</p>
+                                  <ul>
+                                  <li>Creative direction</li>
+                                  <li>Brand identity</li>
+                                  <li>Creative concepting </li>
+                                  <li>Visual &amp; interactive design</li>
+                                  <li>Design specifications</li>
+                                </ul>
+                                    </div>
+                                <!-- end col-4 -->
+                                <div class="col-lg-4"> <img src="images/icon02.png" alt="Image">
+                                  <h4>DEVELOPMENT</h4>
+                                  <p>Website and add some advanced lacks.</p>
+                                  <ul>
+                                  <li>Creative direction</li>
+                                  <li>Brand identity</li>
+                                  <li>Creative concepting </li>
+                                  <li>Visual &amp; interactive design</li>
+                                  <li>Design specifications</li>
+                                </ul> </div>
+                                <!-- end col-4 -->
+                                <div class="col-lg-4"> <img src="images/icon03.png" alt="Image">
+                                  <h4>MARKETING</h4>
+                                  <p>Website and add some advanced functionality.</p>
+                                  <ul>
+                                  <li>Creative direction</li>
+                                  <li>Brand identity</li>
+                                  <li>Creative concepting </li>
+                                  <li>Visual &amp; interactive design</li>
+                                  <li>Design specifications</li>
+                                </ul> </div>
+                                <!-- end col-4 -->
+                                
+                              </div>
+                        </div>
+                        <!-- end container --> 
+                      </section>
+                </main>
+
+                <%- include("./partials/footer.ejs") -%>
+
+                    <%- include("./partials/scripts.ejs") -%>
+                        <script src="js/contact.form.min.js"></script>
+                        <script src="js/jquery.form.min.js"></script>
+                        <script src="js/jquery.validate.min.js"></script>
+                        <!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCRrJ_VQvTCWM0bv_ZpLfm8j5TW-yUhX9E"></script> 
+    <script src="js/googlemaps.min.js"></script> -->
+    </body>
+
+</html>
