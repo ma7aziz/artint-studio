@@ -20,6 +20,10 @@ exports.getPortfolio = (req, res) => {
     res.render('portfolio', { title: 'Portfolio' });
 };
 
+exports.getProjectDetails = (req, res) => {
+    res.render('project', { title: 'Project Details' });
+}
+
 exports.postContact = (req, res) => {
     const { name, phone, email, subject, message } = req.body;
 
@@ -36,4 +40,10 @@ exports.postContact = (req, res) => {
         });
 };
 
+// Change language 
+exports.changeLanguage = (req, res) => {
+    const lang = req.params.lang;
+    res.cookie('lang', lang, { maxAge: 900000, httpOnly: true });
+    res.redirect('back');
+};
 

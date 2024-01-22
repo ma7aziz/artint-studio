@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/preloader.ejs") %>
+            <%- include("./partials/nav.ejs") %>
+                <header class="page-header">
+                    <div class="video-bg">
+                        <video src="/videos/video.mp4" autoplay muted loop></video>
+                    </div>
+                    <!-- end video-bg -->
+                    <div class="inner">
+                        <h2 data-text="  Project Details ">
+                            Project Details
+                        </h2>
+
+                    </div>
+                    <!-- end inner -->
+                    <ul class="social-media">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    </ul>
+                    <div class="scroll-down"><b>SCROLL DOWN</b><span></span></div>
+                    <!-- end scroll-down -->
+                </header>
+
+                <div class="page-header-spacing"></div>
+                <main>
+                    <section class="case-details">
+                        
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 wow fadeInUp" id="case-section-1">
+                                    <h3>Client</h3>
+                                    <h6>We are looking for individuals who are ready to develop daily and not afraid of
+                                        difficult tasks</h6>
+                                    <p>So, the height and width is not fixed, and it is calculated dynamically according
+                                        to the diminutions of the window. Under that div, there is another one that has
+                                        the<b> ID header</b> “navigation bar”, the header is initially
+                                        <em>positioned</em> relatively under div.fullscreen – however, I am trying to
+                                        position it as Fixed when the top of the #header reaches the top of the browser
+                                        window. So here is what I am <u>playing around</u>, it toggles the Fixed style,
+                                        but it does not toggle it at the right place…</p>
+                                </div>
+                                <!-- end col-12 -->
+                                <div class="col-12 wow fadeInUp">
+                                    <figure><img src="/images/case01.png" alt="Image"></figure>
+                                </div>
+                                <!-- end col-12 -->
+                                <div class="col-md-6 wow fadeInUp">
+                                    <figure><img src="/images/case02.png" alt="Image"></figure>
+                                </div>
+                                <!-- end col-6 -->
+                                <div class="col-md-6 wow fadeInUp">
+                                    <figure><img src="/images/case03.png" alt="Image"></figure>
+                                </div>
+                                <div class="col-md-6 wow fadeInUp">
+                                    <figure><img src="/images/case02.png" alt="Image"></figure>
+                                </div>
+                                <!-- end col-6 -->
+                                <div class="col-md-6 wow fadeInUp">
+                                    <figure><img src="/images/case03.png" alt="Image"></figure>
+                                </div>
+                                <!-- end col-6 -->
+                               
+                        </div>
+                        <!-- end container -->
+                    </section>
+                    <%- include("./partials/footer.ejs") -%>
+                </main>
+                <%- include("./partials/scripts.ejs") -%>
+    </body>
+
+</html>

@@ -13,9 +13,11 @@ module.exports = (app) => {
             backend: {
                 loadPath: __dirname + '/../locales/{{lng}}.json'
             },
-            fallbackLng: 'en',
+            cookie: 'lang',
+            lang: 'ar',
+            fallbackLng: 'ar',
             preload: ['en', 'ar'],
-            cookie: 'lang'
+            
         });
 
     app.use(i18nextMiddleware.handle(i18next));
