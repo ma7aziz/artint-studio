@@ -47,3 +47,18 @@ exports.changeLanguage = (req, res) => {
     res.redirect('back');
 };
 
+// // images 
+// exports.getImages = async (req, res) => {
+//     console.log('get images accessed');
+//     console.log(req.params.file);
+//     try {
+//         const image = await Project.findOne({ filename: req.params.filename });
+//         if (!image) {
+//             return res.status(404).send('Image not found');
+//         }
+//         res.render('image', { image });
+//     } catch (error) {
+//         console.error('Error fetching images:', error);
+//         res.status(500).send('Internal Server Error');
+//     }
+// };

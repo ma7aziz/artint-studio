@@ -94,10 +94,8 @@
                                         <%= projects[i].arabic_name %>
                                     </td>
                                     <td>
-                                        <a href="/projects/<%= projects[i].slug %>"
+                                        <a href="/admin/projects/<%= projects[i].id %>"
                                             class="btn btn-sm btn-primary">عرض</a>
-                                        <a href="/projects/<%= projects[i].slug %>/edit"
-                                            class="btn btn-sm btn-info">تعديل</a>
                                         <form action="/admin/projects/<%= projects[i].slug %>/delete" method="POST"
                                             class="d-inline">
                                             <button class="btn btn-sm btn-danger">حذف</button>
@@ -153,13 +151,7 @@
                                     <p class="invlid-feedback"></p>
 
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Slug</label>
-                                    <input type="text" class="form-control" name="slug" id="slug" placeholder="Slug"
-                                        required />
-                                    <p class="invlid-feedback"></p>
-
-                                </div>
+                            
                                 <div class="form-group">
                                     <label for="">الصورة الرئيسية</label>
                                     <input type="file" name="coverImage" class="form-control" id="projectImage"

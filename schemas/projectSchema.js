@@ -1,6 +1,8 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
+
 // Project Model
 const projectSchema = new Schema({
     arabic_name: {
@@ -25,12 +27,12 @@ const projectSchema = new Schema({
       unique: true
     },
 
-    // coverImage: {
-    //   type: String
-    // },
-    // images: [{
-    //   type: String
-    // }],
+    coverImage: {
+      type: String
+    },
+    images: [{
+      type: String
+    }],
     created_at: {
       type: Date,
       default: Date.now
@@ -38,10 +40,20 @@ const projectSchema = new Schema({
     created_by: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
-      // required: true
+    
+    },
+    active: {
+      type: Boolean,
+      default: true
+    },
+    featured: {
+      type: Boolean,
+      default: false
     }
+
   });
   
+
   const Project = mongoose.model('Project', projectSchema);
   
   module.exports = Project ;

@@ -1,7 +1,127 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-    <%- include("./partials/head.ejs") %>
-<body>
-    
-</body>
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+            <div class="container" dir="rtl">
+
+                <div class="d-flex justify-content-between">
+                    <h1>
+                        <%= project.arabic_name %>
+                    </h1>
+                    <div>
+                        <button type="button" data-toggle="modal" data-target="#projectUpdateModal"
+                            class="btn btn-info">تعديل</button>
+                    </div>
+                </div>
+
+                <div class="card card-body">
+                    <p>الاسم العربي : <span>
+                            <%= project.arabic_name %>
+                        </span> </p>
+                    <p>الاسم الانجليزي : <span>
+                            <%= project.english_name %>
+                        </span> </p>
+                    <p> الوصف العربي : <span>
+                            <%= project.arabic_description %>
+                        </span> </p>
+                    <p>الاسم الانجليزي : <span>
+                            <%= project.english_description %>
+                        </span> </p>
+                    <p>وقت الاضافة: <span>
+                            <%= project.created_at.toLocaleString('en-GB') %>
+                        </span> </p>
+                    <p>بواسطة: <span>
+                            <%= project.created_by %>
+                        </span> </p>
+                    <hr>
+                    الصور :
+                    <div>
+                        <h5>الصورة الرئيسية</h5>
+                        <img src="<%= project.coverImage.replace('public', '') %>" alt="project image" width="200px"
+                            height="200px">
+                    </div>
+                    <hr>
+                    <div>
+                        <% project.images.forEach(function(image){ %>
+
+                            <img src="<%= image.replace('public', '') %>" alt="project image" width="200px"
+                                height="200px">
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="projectUpdateModal" tabindex="-1" aria-labelledby="projectUpdateModalLabel"
+                aria-hidden="true">
+
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="projectUpdateModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/admin/projects/<%= project._id %>/edit" method="post"
+                                enctype="multipart/form-data"
+                                >
+                                <label for="arabicName">الاسم العربي:</label>
+                                <input type="text" id="arabicName" class="form-control" name="arabic_name" value="<%= project.arabic_name %>"
+                                    required>
+
+                                <label for="englishName">الاسم الانجليزي:</label>
+                                <input type="text" id="englishName" class="form-control" name="english_name"
+                                    value="<%= project.english_name %>" required>
+
+                                <label for="arabicDescription">الوصف العربي:</label>
+                                <textarea id="arabicDescription" class="form-control" name="arabic_description"
+                                    required><%= project.arabic_description %></textarea>
+
+                                <label for="englishDescription">الوصف الانجليزي:</label>
+                                <textarea id="englishDescription" class="form-control" name="english_description"
+                                    required><%= project.english_description %></textarea>
+
+                                <label for="coverImage">الصورة الرئيسية:</label>
+                                <a href="<%= project.coverImage.replace('public' , '') %>" target="_blank">
+                                    <img src="<%= project.coverImage.replace('public', '') %>" alt="project image" width="100px" height="100px">
+                                </a>
+                                <!-- <input type="file" id="coverImage" class="form-control" name="coverImage" value="<%= project.coverImage.replace('public' , '') %>"> -->
+                                <br>
+                                <label for="images">الصور:</label>
+                                <% if (project.images && project.images.length > 0) { %>
+                                    <div class="image-thumbnails">
+                                      <% project.images.forEach(image => { %>
+                                        <a href="<%= image.replace('public', '') %>" target="_blank">
+                                            <img src="<%= image.replace('public', '') %>" alt="project image" width="100px" height="100px">
+                                        </a>
+                                      <% }); %>
+                                    </div>
+                                  <% } else { %>
+                                    <p>No images available for this project</p>
+                                  <% } %>
+                              
+
+                                <label for="active">نشط:</label>
+                                <input type="checkbox" id="active" name="active" <%=project.active ? 'checked' : '' %>>
+
+                                <label for="featured">عرض  في الصفحة الرئيسية:</label>
+                                <input type="checkbox" id="featured"  name="featured" <%=project.featured ? 'checked'
+                                    : '' %>>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+    </body>
+
+    <%- include("./partials/scripts.ejs") %>
+
 </html>

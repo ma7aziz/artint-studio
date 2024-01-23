@@ -3,10 +3,14 @@
 const { get } = require("mongoose");
 const Project = require('../schemas/projectSchema');
 const Message = require('../schemas/contactSchema');
+const slugify = require('slugify'); 
 
-exports.getAdminLogin = (req, res) => {
+const path = require('path');
+
+// PROJECTS CONTROLLER
+exports.getAdminLogin =  (req, res) => {
     res.render('dashboard/admin', { title: 'Admin Login' });
-};
+}
 
 exports.getAdminDashboard = async (req, res) => {
     const projects = await getProjects()
@@ -15,26 +19,20 @@ exports.getAdminDashboard = async (req, res) => {
 };
 
 exports.postCreateProject = async (req, res) => {
-    console.log(req.body)   
     try {
-        const {
-            arabic_name,
-            english_name,
-            arabic_description,
-            english_description,
-            slug,
-            // Assuming coverImage and images are files
-        } = req.body;
-
-        // Create a new project instance
+        const { arabic_name, english_name, arabic_description, english_description } = req.body;
+        const baseSlug = english_name;
+        const slug = slugify(baseSlug, { lower: true });
         const newProject = new Project({
             arabic_name,
             english_name,
             arabic_description,
             english_description,
             slug,
-            // Add any other fields here
-        });
+            coverImage: req.files['coverImage'][0].path,
+            images: req.files['images'].map(file => file.path),
+            created_by: req.user
+          });
 
         // Save the project
         await newProject.save();
@@ -50,25 +48,51 @@ exports.getSingleProject = async (req, res) => {
 
     try {
         const project = await Project.findById(projectId);
-        res.render('dashboard/singleProject', { title: 'project details', project });
+        res.render('dashboard/singleProject', { title: ` ${project.arabic_name} `, project });
     } catch (error) {
         console.error('Error fetching project:', error);
         res.status(500).send('Internal Server Error');
     }
 };
 
-exports.getEditProject = async (req, res) => {
+// update project
+exports.updateProject = async (req, res) => {
     const projectId = req.params.id;
+    const project = await Project.findById(projectId);
+
+    if (!project) {
+        return res.status(404).json({ error: 'Project not found' });
+    }
+    console.log(req.body)
+
+    const { arabic_name, english_name, arabic_description, english_description } = req.body;
+    const baseSlug = english_name;
+    const slug = slugify(baseSlug, { lower: true });
+    const coverImage = req.files['coverImage'] ? req.files['coverImage'][0].path : project.coverImage;
+    const images = req.files['images'] ? req.files['images'].map(file => file.path) : project.images;
+    const active = req.body.active ? true : false;
+    const featured = req.body.featured ? true : false;
 
     try {
-        const project = await Project.findById(projectId);
-        res.render('dashboard/editProject', { title: 'Edit project', project });
+        const updatedProject = await Project.findByIdAndUpdate(projectId, {
+            arabic_name,
+            english_name,
+            arabic_description,
+            english_description,
+            slug,
+            coverImage,
+            images,
+            active,
+            featured,
+            created_by: req.user
+        }, { new: true });
+
+        res.status(200).json({ message: 'Project updated successfully', project: updatedProject });
     } catch (error) {
-        console.error('Error fetching project:', error);
-        res.status(500).send('Internal Server Error');
+        console.error('Error updating project:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 }
-
 exports.deleteProject = async (req, res) => {
     console.log(req.params)
     const projectId = req.params.slug;
@@ -130,3 +154,5 @@ let getMessages = async function () {
         throw error; // Rethrow the error so it can be handled by the caller
     }
 }
+
+
