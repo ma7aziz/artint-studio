@@ -2,12 +2,14 @@
 <html lang="rtl" lang="ar">
 
 <%- include("./partials/head.ejs") %>
-    <style>
-       
-    </style>
 
-    <body data-theme="light"></body>
+
+    <body data-theme="light">
+
+
         <%- include("./partials/nav.ejs") %>
+
+
             <div class="container-fluid" dir="rtl">
                 <div class="d-flex justify-content-start mr-5 mb-3">
                     <button class="btn  btn-lg btn-info" data-toggle="modal" data-target="#addProjectModal">اضافة مشروع
@@ -28,44 +30,42 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% if (messages && messages.length > 0) { %>
-                            <% for (let i=0; i < messages.length; i++) { %>
-                                <tr
-                                <% if (!messages[i].read) { %>
-                                    class="bg-light-success"
-                                    <% } %>     
-                                >
-                                    <td>
-                                        <%= i + 1 %>
-                                    </td>
-                                    <td>
-                                        <%= messages[i].name %>
-                                    </td>
-                                    <td>
-                                        <%= messages[i].datetime.toLocaleString() %>
-                                    </td>
-                                    <td>
-                                        <button 
-                                            data-target="#messageDetailsModal" 
-                                            data-toggle="modal"
-                                            class="btn btn-sm btn-primary mx-1"
-                                            data-url="/admin/messages/<%= messages[i]._id %>"
-                                            >عرض</a>
-                                            <% if (!messages[i].read) { %>
-                                            <form action="/admin/messages/<%= messages[i]._id %>/edit" method="POST"
-                                                class="d-inline">
-                                                <button class="btn btn-sm btn-success ">تأكيد القراءة</button>
+                            <% if (contact_messages && contact_messages.length> 0) { %>
+                                <% for (let i=0; i < contact_messages.length; i++) { %>
+                                    <tr <% if (!contact_messages[i].read) { %>
+                                        class="bg-light-success"
+                                        <% } %>
+                                            >
+                                            <td>
+                                                <%= i + 1 %>
+                                            </td>
+                                            <td>
+                                                <%= contact_messages[i].name %>
+                                            </td>
+                                            <td>
+                                                <%= contact_messages[i].datetime.toLocaleString() %>
+                                            </td>
+                                            <td>
+                                                <button data-target="#messageDetailsModal" data-toggle="modal"
+                                                    class="btn btn-sm btn-primary mx-1"
+                                                    data-url="/admin/messages/<%= contact_messages[i]._id %>">عرض</a>
+                                                    <% if (!contact_messages[i].read) { %>
+                                                        <form
+                                                            action="/admin/messages/<%= contact_messages[i]._id %>/edit"
+                                                            method="POST" class="d-inline">
+                                                            <button class="btn btn-sm btn-success ">تأكيد
+                                                                القراءة</button>
 
-                                            </form>
-                                            <% } %>
-                                    </td>
-                                </tr>
-                                <% } %>
-                                <% } else { %>
-                                    <tr class="fw-bold">
-                                        <td colspan="4">لا يوجد رسائل جديدة ...</td>
+                                                        </form>
+                                                        <% } %>
+                                            </td>
                                     </tr>
-                                <% } %>
+                                    <% } %>
+                                        <% } else { %>
+                                            <tr class="fw-bold">
+                                                <td colspan="4">لا يوجد رسائل جديدة ...</td>
+                                            </tr>
+                                            <% } %>
                         </tbody>
                     </table>
 
@@ -151,7 +151,7 @@
                                     <p class="invlid-feedback"></p>
 
                                 </div>
-                            
+
                                 <div class="form-group">
                                     <label for="">الصورة الرئيسية</label>
                                     <input type="file" name="coverImage" class="form-control" id="projectImage"
@@ -186,9 +186,9 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="messageDetailsModalLabel">تفاصيل الرسالة</h5>
-                            
+
                         </div>
-                        <div class="modal-body text-right" >
+                        <div class="modal-body text-right">
                             <!-- Message details will be displayed here -->
                             <div class="card card-body">
                                 <h3 class="text-primary">الاسم</h3>
@@ -214,28 +214,6 @@
                 </div>
             </div>
             <%- include("./partials/scripts.ejs") %>
-            <script>
-
-                $(document).ajaxSuccess(function (event, xhr, settings) {
-                    // Handle successful AJAX responses globally
-                    if (isAjaxRequest) {
-                        const data = xhr.responseJSON;
-                        if (data && data.message) {
-                            // Update your HTML element (e.g., a notification div)
-                            $('#messageContainer').text(data.message);
-                        }
-                        
-                    }
-                });
-                $(document).ajaxError(function (event, xhr, settings, error) {
-                // Handle AJAX errors globally
-                if (isAjaxRequest) {
-                    console.error('Global AJAX Error:', error);
-                    // You can add your error handling logic here
-                    
-                }
-            });
-            </script>
                 <script>
                     (function () {
                         'use strict'
@@ -260,31 +238,27 @@
 
                 <!-- DISPLAY MESSGAE  -->
 
-                <script>    
-        // Add event listener to the messageDetailsModal when it is shown
-            $('#messageDetailsModal').on('show.bs.modal', function (event) {
-                // Get the related target that triggered the modal
-                var relatedTarget = event.relatedTarget;
-                url = relatedTarget.dataset.url;
-                // Make an ajax request to get the message details
-                $.ajax({
-                    url: url,
-                    method: 'GET',
-                    success: function (data) {
-                        console.log(data)
-                        // Display the message details in the modal
-                        $('#messageName').text(data.name);
-                        $('#messageEmail').text(data.email);
-                        $('#messagePhone').text(data.phone);
-                        $('#messageDatetime').text(data.datetime);
-                        $('#messageBody').text(data.message);
+                <script>
+                    $('#messageDetailsModal').on('show.bs.modal', function (event) {
+                        var relatedTarget = event.relatedTarget;
+                        url = relatedTarget.dataset.url;
 
-                    }
-                });
-        });
-    </script>
-    
-        <!-- update message read status  -->
+                        $.ajax({
+                            url: url,
+                            method: 'GET',
+                            success: function (data) {
+                                $('#messageName').text(data.name);
+                                $('#messageEmail').text(data.email);
+                                $('#messagePhone').text(data.phone);
+                                $('#messageDatetime').text(data.datetime);
+                                $('#messageBody').text(data.message);
+
+                            }
+                        });
+                    });
+                </script>
+
+                <!-- update message read status  -->
     </body>
 
 </html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar">
+<%- include("./partials/head.ejs") %>
+    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+    <body>
+        <style>
+            .card {
+                width: 90%;
+                margin: auto;
+                direction: rtl !important;
+            }
+
+            #msgTable_length,
+            #msgTable_info {
+                text-align: right;
+            }
+
+            #msgTable_filter {
+                text-align: left;
+            }
+        </style>
+
+        <%- include("./partials/nav.ejs") %>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title ">
+                        <h3 class="text-center">رسائل التواصل</h3>
+                    </div>
+
+                    <table class="table  " id="msgTable">
+                        <thead>
+                            <tr class="bg-dark text-light ">
+                                <td>الاسم</td>
+                                <td>الموضوع</td>
+                                <td>رقم التواصل</td>
+                                <td>الايميل</td>
+                                <td>وقت الارسال</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% contact_messages.forEach(msg=> { %>
+                                <tr>
+                                    <td>
+                                        <%= msg.name %>
+                                    </td>
+                                    <td>
+                                        <%= msg.subject %>
+                                    </td>
+                                    <td>
+                                        <%= msg.phone %>
+                                    </td>
+                                    <td>
+                                        <%= msg.email %>
+                                    </td>
+                                    <td>
+                                        <%= msg.datetime.toLocaleString() %>
+                                    </td>
+                                    <td>
+                                        <button data-target="#messageDetailsModal" data-toggle="modal"
+                                            class="btn btn-sm btn-primary mx-1"
+                                            data-url="/admin/messages/<%= msg._id %>">عرض</a>
+                                            <% if( !msg.read) { %>
+                                            <form action="/admin/messages/<%= msg._id %>/edit" method="POST"
+                                                class="d-inline">
+                                                <button class="btn btn-sm btn-success ">تأكيد القراءة</button>
+
+                                            </form>
+                                            <% } %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal fade" id="messageDetailsModal" tabindex="-1" role="dialog"
+                aria-labelledby="messageDetailsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="messageDetailsModalLabel">تفاصيل الرسالة</h5>
+
+                        </div>
+                        <div class="modal-body text-right">
+                            <!-- Message details will be displayed here -->
+                            <div class="card card-body">
+                                <h3 class="text-primary">الاسم</h3>
+                                <p id="messageName"></p>
+                                <hr>
+                                <h3 class="text-primary">البريد الالكتروني</h3>
+                                <p id="messageEmail"></p>
+                                <hr>
+                                <h3 class="text-primary">الهاتف</h3>
+                                <p id="messagePhone"></p>
+                                <hr>
+                                <h3 class="text-primary">وقت الارسال</h3>
+                                <p id="messageDatetime"></p>
+                                <hr>
+                                <h3 class="text-primary">الرسالة</h3>
+                                <p id="messageBody"></p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include("./partials/scripts.ejs") %>
+            <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#msgTable').DataTable({
+
+                        paging: true,
+                        pageLength: 25,
+                        searching: true,
+                        ordering: false,
+
+                        // Language settings
+                        language: {
+                            search: 'بحث : ',      // Search input label
+                            lengthMenu: 'عرض _MENU_ رسائل في الصفحة',
+                            info: 'عرض _START_ الي _END_ من _TOTAL_ رسائل',
+                            infoEmpty: 'لا يوجد رسائل',
+                            infoFiltered: '(تم البحث في  _MAX_ total رسائل)',
+                            paginate: {
+                                first: 'First',
+                                previous: '|<<',
+                                next: '>>|',
+                                last: 'Last'
+                            }
+                        },
+                    });
+                });
+
+
+                // MEssage details 
+
+                $('#messageDetailsModal').on('show.bs.modal', function (event) {
+                    var relatedTarget = event.relatedTarget;
+                    let url = relatedTarget.dataset.url;
+                    $.ajax({
+                        url: url,
+                        method: 'GET',
+                        success: function (data) {
+                            $('#messageName').text(data.name);
+                            $('#messageEmail').text(data.email);
+                            $('#messagePhone').text(data.phone);
+                            $('#messageDatetime').text(data.datetime);
+                            $('#messageBody').text(data.message);
+
+                        }
+                    });
+                });
+            </script>
+    </body>
+
+</html>

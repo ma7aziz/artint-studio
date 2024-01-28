@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <%- include("./partials/head.ejs") %>
-
+    <style>
+        .card{
+            width: 85%;
+            margin: auto;
+        }
+    </style>
     <body>
         <%- include("./partials/nav.ejs") %>
-            <div class="container" dir="rtl">
-
-                <div class="d-flex justify-content-between">
-                    <h1>
-                        <%= project.arabic_name %>
-                    </h1>
-                    <div>
-                        <button type="button" data-toggle="modal" data-target="#projectUpdateModal"
-                            class="btn btn-info">تعديل</button>
-                    </div>
-                </div>
-
-                <div class="card card-body">
-                    <p>الاسم العربي : <span>
+        
+            <div class="card " dir="rtl">
+                
+        
+                <div class="card-body">
+                    <div class="d-flex justify-content-between card-title">
+                        <h1>
                             <%= project.arabic_name %>
-                        </span> </p>
-                    <p>الاسم الانجليزي : <span>
-                            <%= project.english_name %>
-                        </span> </p>
-                    <p> الوصف العربي : <span>
-                            <%= project.arabic_description %>
-                        </span> </p>
-                    <p>الاسم الانجليزي : <span>
-                            <%= project.english_description %>
-                        </span> </p>
-                    <p>وقت الاضافة: <span>
-                            <%= project.created_at.toLocaleString('en-GB') %>
-                        </span> </p>
-                    <p>بواسطة: <span>
-                            <%= project.created_by %>
-                        </span> </p>
-                    <hr>
-                    الصور :
-                    <div>
-                        <h5>الصورة الرئيسية</h5>
-                        <img src="<%= project.coverImage.replace('public', '') %>" alt="project image" width="200px"
-                            height="200px">
+                        </h1>
+                        <div>
+                            <button type="button" data-toggle="modal" data-target="#projectUpdateModal"
+                                class="btn btn-info">تعديل</button>
+                        </div>
                     </div>
-                    <hr>
-                    <div>
-                        <% project.images.forEach(function(image){ %>
-
-                            <img src="<%= image.replace('public', '') %>" alt="project image" width="200px"
-                                height="200px">
+    
+                    <div class="">
+                        <ul class="list-group">
+                            <li class="list-group-item fw-bold">الاسم العربي : <span class="fw-normal "><%= project.arabic_name %></span></li>
+                            <li class="list-group-item fw-bold">الاسم الانجليزي : <span class="fw-normal "><%= project.english_name %></span></li>
+                            <li class="list-group-item fw-bold">الوصف العربي : <span class="fw-normal "><%= project.arabic_description %></span></li>
+                            <li class="list-group-item fw-bold">الوصف الانجليزي : <span class="fw-normal "><%= project.english_description %></span></li>
+                            <li class="list-group-item fw-bold">وقت الاضافة: <span class="fw-normal "><%= project.created_at.toLocaleString('en-GB') %></span></li>
+                            <li class="list-group-item fw-bold">بواسطة: <span class="fw-normal "><%= project.created_by %></span></li>
+                        </ul>
+                        <hr>
+                        <p>الصور :</p>
+                        <div>
+                            <h5>الصورة الرئيسية</h5>
+                            <img src="<%= project.coverImage.replace('public', '') %>" alt="project image" width="200px" height="200px">
+                        </div>
+                        <hr>
+                        <div>
+                            <% project.images.forEach(function(image){ %>
+                            <img src="<%= image.replace('public', '') %>" alt="project image" width="300px" height="300px">
                             <% }) %>
+                        </div>
                     </div>
                 </div>
+                
             </div>
 
 
@@ -61,7 +58,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="projectUpdateModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="projectUpdateModalLabel">تعديل المشروع</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

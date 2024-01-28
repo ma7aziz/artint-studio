@@ -58,6 +58,9 @@ app.use('/', publicRoutes);
 app.use('/admin', adminRoutes);
 app.use('/auth', authRoutes);
 
+app.use((req, res) => {
+    res.status(404).render('404'); // Render your 404 page
+});
 
 // Start the server
 app.listen(port, () => {

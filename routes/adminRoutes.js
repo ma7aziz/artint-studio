@@ -23,7 +23,8 @@ router.post('/projects/new',  checkAuthenticated ,  upload.fields([{ name: 'cove
 router.get('/projects/:id', checkAuthenticated ,   adminController.getSingleProject);
 router.post('/projects/:id/edit',  checkAuthenticated ,  upload.fields([{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 8 }]), adminController.updateProject);
 router.post('/projects/:slug/delete', checkAuthenticated ,   adminController.deleteProject);
-router.get('/messages/:id',  checkAuthenticated ,  adminController.getMessage);
+router.get('/messages' , checkAuthenticated , adminController.ListMessages);
+router.get('/messages/:id' , checkAuthenticated ,  adminController.getMessage);
 router.post('/messages/:id/edit',  checkAuthenticated ,  adminController.updateMessageReadStatus);
 
 module.exports = router;

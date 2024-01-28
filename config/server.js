@@ -9,4 +9,5 @@ module.exports = (app) => {
     app.set('views', './views');
     app.use(express.static('public'));
     app.use(cookieParser());
+ 
 };

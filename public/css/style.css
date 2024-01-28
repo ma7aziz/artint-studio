@@ -553,8 +553,9 @@ a {
   float: right;
   position: relative;
   cursor: pointer;
-  border-radius: 50%; }
-  .sandwich-btn span {
+  border-radius: 50%;
+ }
+.sandwich-btn span {
     display: block;
     height: 2px;
     width: 18px;
@@ -569,7 +570,8 @@ a {
     -webkit-transition: .25s ease-in-out;
     -moz-transition: .25s ease-in-out;
     -o-transition: .25s ease-in-out;
-    transition: .25s ease-in-out; }
+    transition: .25s ease-in-out; 
+  }
     .sandwich-btn span:nth-child(1) {
       top: 12px; }
     .sandwich-btn span:nth-child(2) {
@@ -1279,13 +1281,16 @@ a {
   bottom: 0;
   z-index: 1;
   padding: 20px 0;
-  color: #fff; }
-  .slider-controls .main-nav {
-    display: inline-block;
-    cursor: pointer;
-    font-family: 'Fjalla One', sans-serif; }
-  .slider-controls .prev {
-    margin-right: 15px; }
+  color: #fff; 
+}
+.slider-controls .main-nav {
+  display: inline-block;
+  cursor: pointer;
+  font-family: 'Fjalla One', sans-serif; 
+}
+.slider-controls .prev {
+  margin-right: 15px; 
+}
 
 /* PAGE HEADER */
 .page-header {
@@ -1299,7 +1304,9 @@ a {
   background: #000;
   position: fixed;
   left: 0;
-  top: 0; }
+  top: 0; 
+}
+
   .page-header:after {
     content: "";
     width: 100%;
@@ -1308,50 +1315,60 @@ a {
     left: 0;
     top: 0;
     background: url(../images/lines.png);
-    z-index: 1; }
+    z-index: 1;
+   }
+
   .page-header .inner {
     width: 100%;
-    padding: 0 60px;
-    margin-top: 39px;
+    padding: 0 140px;
+    margin-top: 20px;
     position: relative;
-    z-index: 3; }
-    .page-header .inner h2 {
-      font-size: 8em;
-      font-weight: 800;
-      line-height: 1;
-      color: #fff;
-      position: relative; }
-      .page-header .inner h2:before {
-        content: attr(data-text);
-        position: absolute;
-        left: -2px;
-        text-shadow: 1px 0 blue;
-        top: 0;
-        color: white;
-        overflow: hidden;
-        clip: rect(0, 900px, 0, 0);
-        animation: noise-anim-2 3s infinite linear alternate-reverse; }
-      .page-header .inner h2:after {
-        content: attr(data-text);
-        position: absolute;
-        left: 2px;
-        text-shadow: -1px 0 red;
-        top: 0;
-        color: white;
-        overflow: hidden;
-        clip: rect(0, xw00px, 0, 0);
-        animation: noise-anim 2s infinite linear alternate-reverse; }
-    .page-header .inner p {
-      font-size: 26px;
-      line-height: 40px;
-      color: #fff;
-      font-weight: 300;
-      margin-bottom: 0;
-      padding-right: 40%; }
+    z-index: 3; 
+  }
+  .page-header .inner h2 {
+    text-transform: capitalize;
+    font-size: 8em;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+    position: relative; 
+  }
+.page-header .inner h2:before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: 1px 0 blue;
+    top: 0;
+    color: white;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: noise-anim-2 3s infinite linear alternate-reverse;
+    }
+.page-header .inner h2:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: white;
+  overflow: hidden;
+  clip: rect(0, xw00px, 0, 0);
+  animation: noise-anim 2s infinite linear alternate-reverse;
+  }
+.page-header .inner p {
+  text-transform: capitalize;
+  font-size: 26px;
+  line-height: 40px;
+  color: #fff;
+  font-weight: 300;
+  margin-bottom: 0;
+  padding-right: 40%;
+  padding-top: 30px;
+ }
 
 .page-header-spacing {
   width: 100%;
-  height: 400px;
+  height: 600px;
   display: flex;
   flex-wrap: nowrap; }
 
@@ -1379,10 +1396,46 @@ a {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding-top: 150px;
+  padding-top: 70px;
   padding-bottom: 50px;
- }
+}
 
+.works .title {
+  text-align: center; 
+  margin-left: auto;  
+  margin-right: auto; 
+}
+
+.works .title h2 {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  margin-top: -10px;
+ 
+}
+
+/* SHOW MORE BTN  */
+.works .show-more {
+    height: 58px;
+    line-height: 54px;
+    display: inline-block;
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 0 50px; 
+    margin-top: 40px ;
+    margin-right: auto ;
+    margin-left: auto
+}
+
+  .works .show-more:hover {
+      background: #fff;
+      color: #000;
+      text-decoration: none; 
+  
+  }
   .works.two-cols ul li {
     width: 50%; 
   }

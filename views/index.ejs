@@ -5,183 +5,216 @@
     <body>
         <!-- preloader , transition-overlay -->
         <%- include("./partials/preloader.ejs") %>
-        <!-- end transition-overlay -->
-        <!-- navbar -->
-        <%- include("./partials/nav.ejs") %>
-            <!-- end navbar -->
-            <header class="header">
-                <div class="slider">
-                    <div class="swiper-container gallery-top">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="slide-inner bg-image" data-background="images/slide01.jpg"> </div>
-                                <!-- end slide-inner -->
-                            </div>
-                            <!-- end swiper-slide -->
-                            <div class="swiper-slide">
-                                <div class="slide-inner bg-image" data-background="images/slide02.jpg"> </div>
-                                <!-- end slide-inner -->
-                            </div>
-                            <!-- end swiper-slide -->
-                            <div class="swiper-slide">
-                                <div class="slide-inner bg-image" data-background="images/slide03.jpg"> </div>
-                                <!-- end slide-inner -->
-                            </div>
-                            <!-- end swiper-slide -->
-                        </div>
-                        <!-- Add Arrows -->
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <div class="swiper-container gallery-thumbs">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"> Innovate
-                            </div>
-                            <!-- end swiper-slide -->
-                            <div    class="swiper-slide"> Integrate
-                            </div>
-                            <!-- end swiper-slide -->
-                            <div    class="swiper-slide"> Influence
-                            </div>
-                            <!-- end swiper-slide -->
-                        </div>
-                    </div>
-                </div>
-                <!-- end slider -->
-                <ul class="social-media">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                </ul>
-                <div class="scroll-down"><b>SCROLL DOWN</b><span></span></div>
-                <!-- end scroll-down -->
-            </header>
-            <!-- end header -->
-            <div class="header-spacing"></div>
-            <!-- end header-spacing -->
-
-            <main>
-
-            <section class="works">
-                <ul>
-                    <!--  -->
-                    <% projects.forEach(function(project) { %>
-                        <li class="wow fadeInUp">
-                            <figure>
-                                <a href="/portfolio/<%= project.slug %>/details">
-
-                                    <img src="<%= project.coverImage.replace('public' , '' ) %>" alt="Image"  height="350" class="thumb">
-                                </a>
-                                <figcaption>
-                                    
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <% }) %>
-
-                  
-                </ul>
-            </section>
-                <!-- end works -->
-                                
-            <section class="features-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 wow fadeInRight text-center">
-                            <h2><%= t('services') %></h2>
-                            <h6><%= t('services_breif') %></h6>
-                        </div>
-                        <!-- end col-5 -->
-                        <div class="col-lg-7">
-                            <div class="row inner">
-                                <div class="col-md-4 wow fadeInUp"> <img src="images/icon01.png" alt="Image">
-                                    <h4><%= t('brand_strategy') %></h4>
-                                    <p><%= t('strategy_breif') %></p></p>
-                                    <a href="#"><%= t('learn_more') %></a>
+            <!-- end transition-overlay -->
+            <!-- navbar -->
+            <%- include("./partials/nav.ejs") %>
+                <!-- end navbar -->
+                <header class="header">
+                    <div class="slider">
+                        <div class="swiper-container gallery-top">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="slide-inner bg-image" data-background="images/slide01.jpg"> </div>
+                                    <!-- end slide-inner -->
                                 </div>
-                                <!-- end col-4 -->
-                                <div class="col-md-4 wow fadeInUp"> <img src="images/icon02.png" alt="Image">
-                                    <h4><%= t('brand_identity') %></h4>
-                                    <p><%= t('identity_breif') %></p></p>
-                                    <a href="#"><%= t('learn_more') %></a>
+                                <!-- end swiper-slide -->
+                                <div class="swiper-slide">
+                                    <div class="slide-inner bg-image" data-background="images/slide02.jpg"> </div>
+                                    <!-- end slide-inner -->
                                 </div>
-                                <!-- end col-4 -->
-                                <div class="col-md-4 wow fadeInUp"> <img src="images/icon03.png" alt="Image">
-                                    <h4><%= t('social_media_managment') %></h4>
-                                    <p><%= t('social_media_breif') %></p>
-                                    <a href="#"><%= t('learn_more') %></a>
+                                <!-- end swiper-slide -->
+                                <div class="swiper-slide">
+                                    <div class="slide-inner bg-image" data-background="images/slide03.jpg"> </div>
+                                    <!-- end slide-inner -->
                                 </div>
-                                
+                                <!-- end swiper-slide -->
                             </div>
-                            <!-- end row inner -->
+                            <!-- Add Arrows -->
+                            <div class="swiper-pagination"></div>
                         </div>
-                        <!-- end col-7 -->
+                        <div class="swiper-container gallery-thumbs">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"> Innovate
+                                </div>
+                                <!-- end swiper-slide -->
+                                <div class="swiper-slide"> Integrate
+                                </div>
+                                <!-- end swiper-slide -->
+                                <div class="swiper-slide"> Influence
+                                </div>
+                                <!-- end swiper-slide -->
+                            </div>
+                        </div>
                     </div>
-                    <!-- end row -->
-                </div>
-                <!-- end container -->
-            </section>
-            <!-- end features-content -->
-            <section class="full-media-content bg-image" data-background="images/hero01.jpg">
-                <div class="sides">
-                    <figure class="wow fadeInLeft"><img src="images/office01.jpg" alt="Image"></figure>
-                </div>
-                <!-- end sides -->
-                <div class="sides inner-content">
-                    <div class="inner wow fadeInUp">
-                        <h5>New Media Digital Agency</h5>
-                        <h2>INNOVASION</h2>
-                        <p>Unicord is a creative digital agency, composed of creative designers & experienced
-                            developers. You’ll have your own individual apartment and facilities which are inspired
-                            by the luxurious life you want to live.</p>
-                        <a href="#">TAKE A LOOK</a>
-                    </div>
-                    <!-- end inner -->
-                </div>
-                <!-- end sides -->
-            </section>
-                <!-- end full-media-content -->
-            <section class="logos">
-                <div class="container">
-                    <ul>
-                        <li class="wow fadeInUp">
-                            <figure> <img src="images/logo01.jpg" alt="Image">
-                                <h6>BIRD DIGITAL INC.</h6>
-                            </figure>
-                        </li>
-                        <li class="wow fadeInUp">
-                            <figure> <img src="images/logo02.jpg" alt="Image">
-                                <h6>FOX ENTERTAINMENT</h6>
-                            </figure>
-                        </li>
-                        <li class="wow fadeInUp">
-                            <figure> <img src="images/logo03.jpg" alt="Image">
-                                <h6>EAGLE SOLUTIONS</h6>
-                            </figure>
-                        </li>
-                        <li class="wow fadeInUp">
-                            <figure> <img src="images/logo04.jpg" alt="Image">
-                                <h6>DEERS MEDICAL INC.</h6>
-                            </figure>
-                        </li>
-                        <li class="wow fadeInUp">
-                            <figure> <img src="images/logo05.jpg" alt="Image">
-                                <h6>BIRD NATURAL PARKS</h6>
-                            </figure>
-                        </li>
+                    <!-- end slider -->
+                    <ul class="social-media">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
                     </ul>
-                </div>
-                <!-- end container -->
-            </section>
-                <!-- end logos -->
-        
-            </main>
+                    <div class="scroll-down"><b>SCROLL DOWN</b><span></span></div>
+                    <!-- end scroll-down -->
+                </header>
+                <!-- end header -->
+                <div class="header-spacing"></div>
+                <!-- end header-spacing -->
 
-            <%- include("./partials/footer.ejs") -%>
-            <!-- end main -->
-            <%- include("./partials/scripts.ejs") -%>
-            
+                <main>
+
+                    <section class="works  wow fadeInRight">
+                        <div  class="title">
+
+                            <h2 ><%= t('portfolio') %></h2>
+                        </div>
+                        <ul>
+                            <!--  -->
+                            <% projects.forEach(function(project) { %>
+                                <li class="wow fadeInUp">
+                                    <figure>
+                                        <a href="/portfolio/<%= project.slug %>/details">
+
+                                            <img src="<%= project.coverImage.replace('public' , '' ) %>" alt="Image"
+                                                height="300" class="thumb">
+                                        </a>
+                                        <figcaption>
+
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <% }) %>
+
+                        </ul>
+
+                      
+                        <a href="/portfolio" class="show-more"><%= t('more') %></a>
+                        
+                    </section>
+                    <!-- end works -->
+
+                    <section class="features-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-5 wow fadeInRight text-center">
+                                    <h2>
+                                        <%= t('services') %>
+                                    </h2>
+                                    <h6>
+                                        <%= t('services_breif') %>
+                                    </h6>
+                                </div>
+                                <!-- end col-5 -->
+                                <div class="col-lg-7">
+                                    <div class="row inner">
+                                        <div class="col-md-4 wow fadeInUp"> <img src="images/icon01.png" alt="Image">
+                                            <h4>
+                                                <%= t('brand_strategy') %>
+                                            </h4>
+                                            <p>
+                                                <%= t('strategy_breif') %>
+                                            </p>
+                                            </p>
+                                            <a href="#">
+                                                <%= t('learn_more') %>
+                                            </a>
+                                        </div>
+                                        <!-- end col-4 -->
+                                        <div class="col-md-4 wow fadeInUp"> <img src="images/icon02.png" alt="Image">
+                                            <h4>
+                                                <%= t('brand_identity') %>
+                                            </h4>
+                                            <p>
+                                                <%= t('identity_breif') %>
+                                            </p>
+                                            </p>
+                                            <a href="#">
+                                                <%= t('learn_more') %>
+                                            </a>
+                                        </div>
+                                        <!-- end col-4 -->
+                                        <div class="col-md-4 wow fadeInUp"> <img src="images/icon03.png" alt="Image">
+                                            <h4>
+                                                <%= t('social_media_managment') %>
+                                            </h4>
+                                            <p>
+                                                <%= t('social_media_breif') %>
+                                            </p>
+                                            <a href="#">
+                                                <%= t('learn_more') %>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <!-- end row inner -->
+                                </div>
+                                <!-- end col-7 -->
+                            </div>
+                            <!-- end row -->
+                        </div>
+                        <!-- end container -->
+                    </section>
+                    <!-- end features-content -->
+                    <section class="full-media-content bg-image" data-background="images/hero01.jpg">
+                        <div class="sides">
+                            <figure class="wow fadeInLeft"><img src="images/office01.jpg" alt="Image"></figure>
+                        </div>
+                        <!-- end sides -->
+                        <div class="sides inner-content">
+                            <div class="inner wow fadeInUp">
+                                <h5>New Media Digital Agency</h5>
+                                <h2>INNOVASION</h2>
+                                <p>Unicord is a creative digital agency, composed of creative designers & experienced
+                                    developers. You’ll have your own individual apartment and facilities which are
+                                    inspired
+                                    by the luxurious life you want to live.</p>
+                                <a href="#">TAKE A LOOK</a>
+                            </div>
+                            <!-- end inner -->
+                        </div>
+                        <!-- end sides -->
+                    </section>
+                    <!-- end full-media-content -->
+                    <section class="logos">
+                        <div class="container">
+                            <ul>
+                                <li class="wow fadeInUp">
+                                    <figure> <img src="images/logo01.jpg" alt="Image">
+                                        <h6>BIRD DIGITAL INC.</h6>
+                                    </figure>
+                                </li>
+                                <li class="wow fadeInUp">
+                                    <figure> <img src="images/logo02.jpg" alt="Image">
+                                        <h6>FOX ENTERTAINMENT</h6>
+                                    </figure>
+                                </li>
+                                <li class="wow fadeInUp">
+                                    <figure> <img src="images/logo03.jpg" alt="Image">
+                                        <h6>EAGLE SOLUTIONS</h6>
+                                    </figure>
+                                </li>
+                                <li class="wow fadeInUp">
+                                    <figure> <img src="images/logo04.jpg" alt="Image">
+                                        <h6>DEERS MEDICAL INC.</h6>
+                                    </figure>
+                                </li>
+                                <li class="wow fadeInUp">
+                                    <figure> <img src="images/logo05.jpg" alt="Image">
+                                        <h6>BIRD NATURAL PARKS</h6>
+                                    </figure>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end container -->
+                    </section>
+                    <!-- end logos -->
+
+                </main>
+
+                <%- include("./partials/footer.ejs") -%>
+                    <!-- end main -->
+                    <%- include("./partials/scripts.ejs") -%>
+
     </body>
 
 </html>

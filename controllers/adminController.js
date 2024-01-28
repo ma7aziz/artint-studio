@@ -1,11 +1,8 @@
 // adminController.js
-
-const { get } = require("mongoose");
 const Project = require('../schemas/projectSchema');
 const Message = require('../schemas/contactSchema');
 const slugify = require('slugify'); 
 
-const path = require('path');
 
 // PROJECTS CONTROLLER
 exports.getAdminLogin =  (req, res) => {
@@ -15,7 +12,8 @@ exports.getAdminLogin =  (req, res) => {
 exports.getAdminDashboard = async (req, res) => {
     const projects = await getProjects()
     const messages = await getMessages()
-    res.render('dashboard/dashboard', { title: 'Admin', 'projects': projects , 'messages': messages });
+    
+    res.render('dashboard/dashboard', { title: 'Admin', 'projects': projects , 'contact_messages': messages });
 };
 
 exports.postCreateProject = async (req, res) => {
@@ -31,15 +29,18 @@ exports.postCreateProject = async (req, res) => {
             slug,
             coverImage: req.files['coverImage'][0].path,
             images: req.files['images'].map(file => file.path),
-            created_by: req.user
+
           });
 
         // Save the project
         await newProject.save();
-        res.status(201).json({ message: 'Project saved successfully' });
+        req.flash('success', 'تم الحفظ');
+        res.redirect('back')
+
     } catch (error) {
-        console.error('Error saving project:');
-        res.status(500).json({ error: error.message });
+        console.error('Error saving project:' , error);
+        req.flash('error' , error.message)
+        res.redirect('back')
     }
 }
 
@@ -84,25 +85,29 @@ exports.updateProject = async (req, res) => {
             images,
             active,
             featured,
-            created_by: req.user
+
         }, { new: true });
 
-        res.status(200).json({ message: 'Project updated successfully', project: updatedProject });
+        req.flash('success' , 'تم التحديث .. ')
+        res.redirect('back')
+
     } catch (error) {
         console.error('Error updating project:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        req.flash('error' , `Error .. ${error.message}`)
+        res.redirect('back')
     }
 }
 exports.deleteProject = async (req, res) => {
-    console.log(req.params)
     const projectId = req.params.slug;
 
     try {
         await Project.findOneAndDelete({ slug: projectId });
+        req.flash('success' , 'تم الحذف .. ')
         res.redirect('/admin/dashboard');
     } catch (error) {
         console.error('Error deleting project:', error);
-        res.status(500).send('Internal Server Error');
+        req.flash('error' , 'خطأ اثناء الحذف .. يرجي المحاولة مرة اخري')
+        res.redirect('back')
     }
 };
 
@@ -121,19 +126,23 @@ exports.getMessage = async (req, res) => {
 
 // POST CONTROLLER
 exports.updateMessageReadStatus = async (req, res) => {
-    console.log('Accessed')
     const messageId = req.params.id;
 
     try {
         await Message.findByIdAndUpdate(messageId, { read: true });
-        
+        req.flash('success' , 'تم التحديث .. ')
         res.redirect( '/admin/dashboard' );
     } catch (error) {
         console.error('Error updating message read status:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        req.flash('error' , 'خطأ اثناء التحديث .. يرجي المحاولة مرة اخري')
+        res.redirect('back')
     }
 }
 
+exports.ListMessages = async (req , res) => {
+    const contact_messages = await Message.find({})
+    res.render('dashboard/messages_list' , {'title' : 'قائمة الرسائل' , contact_messages})
+}
 // HELPER FUNCTIONS
 let getProjects = async function () {
     try {

@@ -1,11 +1,18 @@
 <head>
-    <meta charset="UTF-8"   >
+    <meta charset="UTF-8" lang="<%= langCookieValue %>" 
+    dir=  "<%= (langCookieValue === 'en') ? 'ltr' : 'rtl' %>"
+    >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#33a16e"/>    
     <title>Artint | <%= title %></title>
-    <link rel="stylesheet" href="/css/styleRTL.css">
+    <% if (langCookieValue === 'en') { %>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <% } else { %>
+        <link rel="stylesheet" href="/css/styleRTL.css">
+        <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <% } %>
     <link rel="stylesheet" href="/css/animate.min.css">
-    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/swiper.min.css">
     <link href="/ico/favicon.png" rel="shortcut icon">

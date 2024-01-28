@@ -4,29 +4,40 @@ const ContactMessage = require('../schemas/contactSchema');
 const Project = require('../schemas/projectSchema');
 
 exports.getHome = async (req, res) => {
+    const lang =  res.locals.langCookieValue 
     const projects = await Project.find({  }).sort({ date: -1 }).limit(3);
     
-    res.render('index', { title: 'Home'  , projects});
+    res.render('index', { title: lang === 'ar'? 'الرئيسية' : 'Home'  , projects});
 };
 
 exports.getAbout = (req, res) => {
-    res.render('about', { title: 'About' });
+    const lang =  res.locals.langCookieValue 
+    res.render('about',  { title: lang === 'ar'? 'من نحن' : 'About Us'  });
 };
 
 exports.getContact = (req, res) => {
-    res.render('contact', { title: 'Contact' });
+    const lang =  res.locals.langCookieValue 
+    res.render('contact', { title: lang === 'ar'? 'تواصل معنا' : 'Contact Us'  });
 };
 
-exports.getPortfolio = (req, res) => {
-    res.render('portfolio', { title: 'Portfolio' });
+exports.getPortfolio = async (req, res) => {
+    const projects = await Project.find({}).sort({date : -1 });
+    const lang =  res.locals.langCookieValue 
+    res.render('portfolio', {title: lang === 'ar'? 'أعمالنا' : 'Portfolio', projects });
 };
 
 exports.getProjectDetails = async(req, res) => {
     slug = req.params.slug;
     const project =await Project.findOne({ slug: slug });
-
-    res.render('project', { title: 'Project Details'  , project});
+    const lang = res.locals.langCookieValue
+    const title = lang === 'ar' ?  project.arabic_name : project.english_name
+    res.render('project', { title , project});
 }
+
+
+
+// 404 
+
 
 exports.postContact = (req, res) => {
     const { name, phone, email, subject, message } = req.body;

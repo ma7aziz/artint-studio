@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include("./partials/head.ejs") %>
-
     <body>
         <%- include("./partials/preloader.ejs") %>
             <%- include("./partials/nav.ejs") %>
@@ -10,12 +9,23 @@
                         <video src="/videos/video.mp4" autoplay muted loop></video>
                     </div>
                     <!-- end video-bg -->
-                    <div class="inner">
-                        <h2 data-text="<%= project.arabic_name %>">
-                            <%= project.arabic_name %>
-                        </h2>
-                        <p><%= project.arabic_description %></p>
-                    </div>
+
+                    <% if (langCookieValue === 'en' ) { %> 
+                        <div class="inner">
+                            <h2 data-text="<%= project.english_name %>">
+                                <%= project.english_name %>
+                            </h2>
+                            <p><%= project.english_description %></p>
+                        </div>
+                    <%  } else { %>
+
+                        <div class="inner">
+                            <h2 data-text="<%= project.arabic_name %>">
+                                <%= project.arabic_name %>
+                            </h2>
+                            <p><%= project.arabic_description %></p>
+                        </div>
+                        <%  } %>
                     <!-- end inner -->
                     <ul class="social-media">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>

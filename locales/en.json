@@ -1,5 +1,5 @@
 {
-    "menu" : "القائمة" ,
+    "menu" : "menu" ,
     "home" : "Home" ,
     "about" : "About Us" ,
     "contact" : "Contact Us" ,
@@ -15,6 +15,7 @@
     "strategy_breif":"Our expert team develops comprehensive brand strategies that effectively position your business in the market, differentiate you from competitors, and drive long-term growth.",
     "identity_breif":"We create captivating brand identities that visually represent your unique essence, leaving a lasting impression on your audience and fostering brand recognition and loyalty." , 
     "learn_more" : "Learn More ", 
-    "say_hello"  : "Say Hello "
+    "say_hello"  : "Say Hello " , 
+    "more" : "Show More"
 
 }
