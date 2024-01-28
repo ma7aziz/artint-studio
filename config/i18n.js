@@ -5,7 +5,6 @@ const i18nextMiddleware = require('i18next-http-middleware');
 
 
 module.exports = (app) => {
-
     i18next
         .use(Backend)
         .use(i18nextMiddleware.LanguageDetector)
@@ -13,12 +12,19 @@ module.exports = (app) => {
             backend: {
                 loadPath: __dirname + '/../locales/{{lng}}.json'
             },
-            cookie: 'lang',
-            lang: 'ar',
+            detection: {
+                order: ['querystring', 'cookie'],
+                caches: ['cookie']
+              },
+            // lang: 'ar',
+            // cookie: 'lang',
+            preload: [ 'ar' , 'en'],
             fallbackLng: 'ar',
-            preload: ['en', 'ar'],
+            saveMissing: true,
+
             
         });
 
     app.use(i18nextMiddleware.handle(i18next));
 };
+

@@ -18,12 +18,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-router.get('/dashboard',  adminController.getAdminDashboard);
-router.post('/projects/new',  upload.fields([{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 8 }]), adminController.postCreateProject);
-router.get('/projects/:id',  adminController.getSingleProject);
-router.post('/projects/:id/edit',  upload.fields([{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 8 }]), adminController.updateProject);
-router.post('/projects/:slug/delete',  adminController.deleteProject);
-router.get('/messages/:id',  adminController.getMessage);
-router.post('/messages/:id/edit',  adminController.updateMessageReadStatus);
+router.get('/dashboard', checkAuthenticated ,   adminController.getAdminDashboard);
+router.post('/projects/new',  checkAuthenticated ,  upload.fields([{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 8 }]), adminController.postCreateProject);
+router.get('/projects/:id', checkAuthenticated ,   adminController.getSingleProject);
+router.post('/projects/:id/edit',  checkAuthenticated ,  upload.fields([{ name: 'coverImage', maxCount: 1 }, { name: 'images', maxCount: 8 }]), adminController.updateProject);
+router.post('/projects/:slug/delete', checkAuthenticated ,   adminController.deleteProject);
+router.get('/messages/:id',  checkAuthenticated ,  adminController.getMessage);
+router.post('/messages/:id/edit',  checkAuthenticated ,  adminController.updateMessageReadStatus);
 
 module.exports = router;

@@ -3,8 +3,10 @@
 const ContactMessage = require('../schemas/contactSchema');
 const Project = require('../schemas/projectSchema');
 
-exports.getHome = (req, res) => {
-    res.render('index', { title: 'Home' });
+exports.getHome = async (req, res) => {
+    const projects = await Project.find({  }).sort({ date: -1 }).limit(3);
+    
+    res.render('index', { title: 'Home'  , projects});
 };
 
 exports.getAbout = (req, res) => {
@@ -16,12 +18,14 @@ exports.getContact = (req, res) => {
 };
 
 exports.getPortfolio = (req, res) => {
-    console.log('page accessed');
     res.render('portfolio', { title: 'Portfolio' });
 };
 
-exports.getProjectDetails = (req, res) => {
-    res.render('project', { title: 'Project Details' });
+exports.getProjectDetails = async(req, res) => {
+    slug = req.params.slug;
+    const project =await Project.findOne({ slug: slug });
+
+    res.render('project', { title: 'Project Details'  , project});
 }
 
 exports.postContact = (req, res) => {
@@ -43,22 +47,7 @@ exports.postContact = (req, res) => {
 // Change language 
 exports.changeLanguage = (req, res) => {
     const lang = req.params.lang;
-    res.cookie('lang', lang, { maxAge: 900000, httpOnly: true });
+    res.cookie('i18next', lang, { maxAge: 900000, httpOnly: true });
     res.redirect('back');
 };
 
-// // images 
-// exports.getImages = async (req, res) => {
-//     console.log('get images accessed');
-//     console.log(req.params.file);
-//     try {
-//         const image = await Project.findOne({ filename: req.params.filename });
-//         if (!image) {
-//             return res.status(404).send('Image not found');
-//         }
-//         res.render('image', { image });
-//     } catch (error) {
-//         console.error('Error fetching images:', error);
-//         res.status(500).send('Internal Server Error');
-//     }
-// };

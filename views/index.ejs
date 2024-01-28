@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 <%- include("./partials/head.ejs") %>
 
     <body>
@@ -37,10 +37,10 @@
                             <div class="swiper-slide"> Innovate
                             </div>
                             <!-- end swiper-slide -->
-                            <div class="swiper-slide"> Integrate
+                            <div    class="swiper-slide"> Integrate
                             </div>
                             <!-- end swiper-slide -->
-                            <div class="swiper-slide"> Influence
+                            <div    class="swiper-slide"> Influence
                             </div>
                             <!-- end swiper-slide -->
                         </div>
@@ -65,48 +65,22 @@
 
             <section class="works">
                 <ul>
-                    <li class="wow fadeInUp">
-                        <figure > <img src="images/work/01.jpg" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-                                
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="wow fadeInUp">
-                        <figure > <img src="images/work/02.jpg" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-                               
-                            </figcaption>
-                        </figure>
-                    </li>
-                   
-                    <li class="wow fadeInUp">
-                        <figure> <img src="images/work/03.png" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-                           
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="wow fadeInUp">
-                        <figure > <img src="images/work/04.jpg" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-                            
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="wow fadeInUp">
-                        <figure > <img src="images/work/05.png" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-      
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="wow fadeInUp">
-                        <figure> <img src="images/work/06.png" alt="Image" class="thumb">
-                            <figcaption> <img src="images/logo-brand3.png" alt="Image" class="brand">
-                            </figcaption>
-                        </figure>
-                    </li>
+                    <!--  -->
+                    <% projects.forEach(function(project) { %>
+                        <li class="wow fadeInUp">
+                            <figure>
+                                <a href="/portfolio/<%= project.slug %>/details">
+
+                                    <img src="<%= project.coverImage.replace('public' , '' ) %>" alt="Image"  height="350" class="thumb">
+                                </a>
+                                <figcaption>
+                                    
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <% }) %>
+
+                  
                 </ul>
             </section>
                 <!-- end works -->
@@ -114,30 +88,29 @@
             <section class="features-content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-5 wow fadeInLeft">
+                        <div class="col-lg-5 wow fadeInRight text-center">
                             <h2><%= t('services') %></h2>
-                            <h6>All of our products exist to help you customize your website and add some advanced
-                                functionality lacks.</h6>
+                            <h6><%= t('services_breif') %></h6>
                         </div>
                         <!-- end col-5 -->
                         <div class="col-lg-7">
                             <div class="row inner">
                                 <div class="col-md-4 wow fadeInUp"> <img src="images/icon01.png" alt="Image">
-                                    <h4>Brand Strategy</h4>
-                                    <p>Unicord provides a fantastic living experience.</p>
-                                    <a href="#">LEARN MORE</a>
+                                    <h4><%= t('brand_strategy') %></h4>
+                                    <p><%= t('strategy_breif') %></p></p>
+                                    <a href="#"><%= t('learn_more') %></a>
                                 </div>
                                 <!-- end col-4 -->
                                 <div class="col-md-4 wow fadeInUp"> <img src="images/icon02.png" alt="Image">
-                                    <h4>Brand Identity</h4>
-                                    <p>Website and add some advanced lacks.</p>
-                                    <a href="#">LEARN MORE</a>
+                                    <h4><%= t('brand_identity') %></h4>
+                                    <p><%= t('identity_breif') %></p></p>
+                                    <a href="#"><%= t('learn_more') %></a>
                                 </div>
                                 <!-- end col-4 -->
                                 <div class="col-md-4 wow fadeInUp"> <img src="images/icon03.png" alt="Image">
-                                    <h4>Social Media Management</h4>
-                                    <p>Website and add some advanced functionality.</p>
-                                    <a href="#">LEARN MORE</a>
+                                    <h4><%= t('social_media_managment') %></h4>
+                                    <p><%= t('social_media_breif') %></p>
+                                    <a href="#"><%= t('learn_more') %></a>
                                 </div>
                                 
                             </div>

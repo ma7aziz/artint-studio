@@ -11,10 +11,10 @@
                     </div>
                     <!-- end video-bg -->
                     <div class="inner">
-                        <h2 data-text="  Project Details ">
-                            Project Details
+                        <h2 data-text="<%= project.arabic_name %>">
+                            <%= project.arabic_name %>
                         </h2>
-
+                        <p><%= project.arabic_description %></p>
                     </div>
                     <!-- end inner -->
                     <ul class="social-media">
@@ -35,37 +35,24 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-12 wow fadeInUp" id="case-section-1">
-                                    <h3>Client</h3>
-                                    <h6>We are looking for individuals who are ready to develop daily and not afraid of
-                                        difficult tasks</h6>
-                                    <p>So, the height and width is not fixed, and it is calculated dynamically according
-                                        to the diminutions of the window. Under that div, there is another one that has
-                                        the<b> ID header</b> “navigation bar”, the header is initially
-                                        <em>positioned</em> relatively under div.fullscreen – however, I am trying to
-                                        position it as Fixed when the top of the #header reaches the top of the browser
-                                        window. So here is what I am <u>playing around</u>, it toggles the Fixed style,
-                                        but it does not toggle it at the right place…</p>
+                                    
+                                    <h6></h6>
+                                    
                                 </div>
                                 <!-- end col-12 -->
                                 <div class="col-12 wow fadeInUp">
-                                    <figure><img src="/images/case01.png" alt="Image"></figure>
+                                    <figure><img src="<%= project.coverImage.replace('public' , '') %>" alt="Image"></figure>
                                 </div>
                                 <!-- end col-12 -->
+                                <!-- Other images  -->
+                                <% project.images.forEach(function(image){ %>
                                 <div class="col-md-6 wow fadeInUp">
-                                    <figure><img src="/images/case02.png" alt="Image"></figure>
+                                    <figure><img src="<%= image.replace('public' , '') %>" alt="Image"></figure>
+
                                 </div>
-                                <!-- end col-6 -->
-                                <div class="col-md-6 wow fadeInUp">
-                                    <figure><img src="/images/case03.png" alt="Image"></figure>
-                                </div>
-                                <div class="col-md-6 wow fadeInUp">
-                                    <figure><img src="/images/case02.png" alt="Image"></figure>
-                                </div>
-                                <!-- end col-6 -->
-                                <div class="col-md-6 wow fadeInUp">
-                                    <figure><img src="/images/case03.png" alt="Image"></figure>
-                                </div>
-                                <!-- end col-6 -->
+                                <% }) %>
+                              
+                                <!-- end other images -->
                                
                         </div>
                         <!-- end container -->

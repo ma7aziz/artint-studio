@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --require esm test/"
+    "test": "mocha --require esm test/",
+    "i18n:scan": "i18next-scanner --config config/i18next-scanner.config.js"
+
   },
   "author": "",
   "license": "ISC",
@@ -35,6 +37,7 @@
   "devDependencies": {
     "chai": "^5.0.0",
     "dotenv": "^16.3.2",
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "i18next-scanner": "^4.4.0"
   }
 }

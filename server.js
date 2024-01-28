@@ -10,7 +10,8 @@ const flash = require('express-flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
 const User = require('./schemas/userSchema');
-
+const langCookieMiddleware = require('./middleware/langCookieValueMiddleware')
+const cookieParser = require('cookie-parser')
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
@@ -48,6 +49,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser());
+app.use(langCookieMiddleware);
 
 
 // Use routes

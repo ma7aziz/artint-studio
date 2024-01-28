@@ -1,9 +1,20 @@
 {
+    "menu" : "القائمة" ,
     "home" : "Home" ,
     "about" : "About Us" ,
     "contact" : "Contact Us" ,
     "services" : "Our Services" ,
     "portfolio" : "Portfolio" ,
     "team" : "Team" ,
-    "copyright" : "All Rights Reserved" 
+    "copyright" : "All Rights Reserved" , 
+    "social_media_managment" : "Social Media Managment",
+    "brand_strategy" : "Brand Strategy",
+    "brand_identity" : "Brand Identity",
+    "services_breif" : " Amplify your brand identity, foster meaningful connections, and navigate the ever-evolving digital landscape. ",
+    "social_media_breif":"Our dedicated team specializes in managing social media platforms to help businesses establish a strong online presence, engage with their target audience, and drive brand awareness and growth.",
+    "strategy_breif":"Our expert team develops comprehensive brand strategies that effectively position your business in the market, differentiate you from competitors, and drive long-term growth.",
+    "identity_breif":"We create captivating brand identities that visually represent your unique essence, leaving a lasting impression on your audience and fostering brand recognition and loyalty." , 
+    "learn_more" : "Learn More ", 
+    "say_hello"  : "Say Hello "
+
 }
