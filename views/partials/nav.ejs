@@ -16,8 +16,14 @@
         <address>
             <a href="mailto:globals.contactEmail" class="text-light"><%= globals.contactEmail %> </a><br>
             <br><a href="tel:globals.phoneNumber" class="text-light"><%= globals.phoneNumber %></a>
-
         </address>
+        <ul class="nav-social">
+            <li><a href="#"><i class="fa fa-facebook "></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+        </ul>
     </div>
     <!-- end inner -->
 </nav>
@@ -28,10 +34,10 @@
     <div class="email-us"><%= t('say_hello') %> <a href="mailto:<%= globals.contactEmail %>"><%= globals.contactEmail %></a></div>
     <!-- end email-us -->
 
-        <div class="languages">
-            <a href="/language/en" class="<%= (langCookieValue === 'en') ? 'active' : '' %>">EN</a>
-            <a href="/language/ar" class="<%= (langCookieValue === 'ar') ? 'active' : '' %>">عربي</a>
-        </div>
+    <div class="languages">
+        <a href="/language/en" class="<%= (langCookieValue === 'en') ? 'active' : '' %>">EN</a>
+        <a href="/language/ar" class="<%= (langCookieValue === 'ar') ? 'active' : '' %>">عربي</a>
+    </div>
     <!-- end languages -->
     <div class="sandwich-nav"> <b><%= t('menu') %></b>
         <div class="sandwich-btn circle" id="sandwich-btn" data-dist="7"> <span></span> <span></span> </div>

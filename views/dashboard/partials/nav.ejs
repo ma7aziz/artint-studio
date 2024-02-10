@@ -1,30 +1,60 @@
+<style>
+    
+@media (max-width: 992px) {
+    .brand-logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    #contactMsgsTable thead tr th:first-child  ,
+    #contactMsgsTable tbody tr td:first-child  ,
+    #projectTable thead tr th:first-child  ,
+    #projectTable tbody tr td:first-child {
+        display: none;
+    }
+    .table>:not(caption)>*>* {
+        padding: 16px 8px;
+    }
+    .card {
+        padding: 16px 8px;
+    }
+    
+
+}
+</style>
 
 <header dir="rtl">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4 mb-2">
-        <a class="navbar-brand" href="#"><img src="/images/logo-w.png" alt=""
-                style="height: 50px; width: 100%;"
-            ></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="brand-logo d-flex align-items-center justify-content-between ">
+            <a class="navbar-brand logo-img" href="/"><img src="/images/logo-w.png" alt="" width="180"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/admin/dashboard">الرئيسية</a>
+                    <a class="nav-link fw-bold" href="/admin/dashboard">
+                        <i class="fa-solid fa-house"></i>
+                        الرئيسية</a>
                 </li>
 
-                
-                <li class="nav-item active">
-                    <a class="nav-link" href="/admin/messages">رسائل التواصل</a>
+
+                <li class="nav-item fw-bold ">
+                    <a class="nav-link" href="/admin/messages">
+                        <i class="fa-regular fa-envelope"></i>
+                        رسائل التواصل</a>
                 </li>
 
-                
-                <li class="nav-item ">
+                <li class="nav-item px-5 ">
                     <form action="/auth/logout?_method=DELETE" method="POST">
-                        <button class="btn btn-sm btn-dark " href="#">خروج</button>
+                        <button class="btn btn-sm btn-dark " href="#">
+                            <i class="fa-solid fa-arrow-right-from-bracket "></i>
+                            خروج
+                        </button>
                     </form>
                 </li>
-            
             </ul>
         </div>
     </nav>
@@ -33,15 +63,15 @@
 <% if (messages.success) { %>
     <div class="alert alert-light-success alert-dismissible fade show text-center" role="alert">
         <%= messages.success %>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
     </div>
-<% } else if (messages.error) { %>
-    <div class="alert alert-light-danger alert-dismissible fade show text-center " role="alert">
-        <%= messages.error %>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-    </div>
-<% } %>
+    <% } else if (messages.error) { %>
+        <div class="alert alert-light-danger alert-dismissible fade show text-center " role="alert">
+            <%= messages.error %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <% } %>

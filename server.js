@@ -16,7 +16,6 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 
-
 // Import routes
 const publicRoutes = require('./routes/publicRoutes');
 const adminRoutes = require('./routes/adminRoutes');
@@ -38,7 +37,7 @@ initializePassport(
 );
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({limit: '50mb' ,  extended: true  , parameterLimit: 1000000}));
 app.use(bodyParser.json());
 app.use(flash());
 app.use(methodOverride('_method'));

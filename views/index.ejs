@@ -11,20 +11,20 @@
                 <!-- end navbar -->
                 <header class="header">
                     <div class="slider">
-                        <div class="swiper-container gallery-top">
-                            <div class="swiper-wrapper">
+                        <div class="swiper-container gallery-top" >
+                            <div class="swiper-wrapper" dir="rtl">
                                 <div class="swiper-slide">
-                                    <div class="slide-inner bg-image" data-background="images/slide01.jpg"> </div>
+                                    <div class="slide-inner bg-image" data-background="/images/slide01.jpg"> </div>
                                     <!-- end slide-inner -->
                                 </div>
                                 <!-- end swiper-slide -->
                                 <div class="swiper-slide">
-                                    <div class="slide-inner bg-image" data-background="images/slide02.jpg"> </div>
+                                    <div class="slide-inner bg-image" data-background="/images/slide02.jpg"> </div>
                                     <!-- end slide-inner -->
                                 </div>
                                 <!-- end swiper-slide -->
                                 <div class="swiper-slide">
-                                    <div class="slide-inner bg-image" data-background="images/slide03.jpg"> </div>
+                                    <div class="slide-inner bg-image" data-background="/images/slide03.jpg"> </div>
                                     <!-- end slide-inner -->
                                 </div>
                                 <!-- end swiper-slide -->
@@ -33,15 +33,10 @@
                             <div class="swiper-pagination"></div>
                         </div>
                         <div class="swiper-container gallery-thumbs">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"> Innovate
-                                </div>
-                                <!-- end swiper-slide -->
-                                <div class="swiper-slide"> Integrate
-                                </div>
-                                <!-- end swiper-slide -->
-                                <div class="swiper-slide"> Influence
-                                </div>
+                            <div class="swiper-wrapper" dir="rtl">
+                                <div class="swiper-slide">Innovate</div>
+                                <div class="swiper-slide">Integrate</div>                          
+                                <div class="swiper-slide">Influence</div>
                                 <!-- end swiper-slide -->
                             </div>
                         </div>
@@ -76,7 +71,9 @@
                                         <a href="/portfolio/<%= project.slug %>/details">
 
                                             <img src="<%= project.coverImage.replace('public' , '' ) %>" alt="Image"
-                                                height="300" class="thumb">
+                                                height="300" class="thumb"
+                                                loading="lazy"
+                                                >
                                         </a>
                                         <figcaption>
 
@@ -107,7 +104,7 @@
                                 <!-- end col-5 -->
                                 <div class="col-lg-7">
                                     <div class="row inner">
-                                        <div class="col-md-4 wow fadeInUp"> <img src="images/icon01.png" alt="Image">
+                                        <div class="col-md-4 wow fadeInUp"> <img src="images/icon01.png" alt="Image" loading="lazy">
                                             <h4>
                                                 <%= t('brand_strategy') %>
                                             </h4>
@@ -120,7 +117,7 @@
                                             </a>
                                         </div>
                                         <!-- end col-4 -->
-                                        <div class="col-md-4 wow fadeInUp"> <img src="images/icon02.png" alt="Image">
+                                        <div class="col-md-4 wow fadeInUp"> <img src="images/icon02.png" alt="Image" loading="lazy">
                                             <h4>
                                                 <%= t('brand_identity') %>
                                             </h4>
@@ -133,7 +130,7 @@
                                             </a>
                                         </div>
                                         <!-- end col-4 -->
-                                        <div class="col-md-4 wow fadeInUp"> <img src="images/icon03.png" alt="Image">
+                                        <div class="col-md-4 wow fadeInUp"> <img src="images/icon03.png" alt="Image" loading="lazy">
                                             <h4>
                                                 <%= t('social_media_managment') %>
                                             </h4>
@@ -155,9 +152,9 @@
                         <!-- end container -->
                     </section>
                     <!-- end features-content -->
-                    <section class="full-media-content bg-image" data-background="images/hero01.jpg">
+                    <section class="full-media-content bg-image" data-background="images/hero01.jpg" loading="lazy">
                         <div class="sides">
-                            <figure class="wow fadeInLeft"><img src="images/office01.jpg" alt="Image"></figure>
+                            <figure class="wow fadeInLeft"><img src="images/office01.jpg" alt="Image" loading="lazy"></figure>
                         </div>
                         <!-- end sides -->
                         <div class="sides inner-content">
@@ -179,27 +176,27 @@
                         <div class="container">
                             <ul>
                                 <li class="wow fadeInUp">
-                                    <figure> <img src="images/logo01.jpg" alt="Image">
+                                    <figure> <img src="images/logo01.jpg" alt="Image" loading="lazy">
                                         <h6>BIRD DIGITAL INC.</h6>
                                     </figure>
                                 </li>
                                 <li class="wow fadeInUp">
-                                    <figure> <img src="images/logo02.jpg" alt="Image">
+                                    <figure> <img src="images/logo02.jpg" alt="Image" loading="lazy">
                                         <h6>FOX ENTERTAINMENT</h6>
                                     </figure>
                                 </li>
                                 <li class="wow fadeInUp">
-                                    <figure> <img src="images/logo03.jpg" alt="Image">
+                                    <figure> <img src="images/logo03.jpg" alt="Image" loading="lazy">
                                         <h6>EAGLE SOLUTIONS</h6>
                                     </figure>
                                 </li>
                                 <li class="wow fadeInUp">
-                                    <figure> <img src="images/logo04.jpg" alt="Image">
+                                    <figure> <img src="images/logo04.jpg" alt="Image" loading="lazy">
                                         <h6>DEERS MEDICAL INC.</h6>
                                     </figure>
                                 </li>
                                 <li class="wow fadeInUp">
-                                    <figure> <img src="images/logo05.jpg" alt="Image">
+                                    <figure> <img src="images/logo05.jpg" alt="Image" loading="lazy">
                                         <h6>BIRD NATURAL PARKS</h6>
                                     </figure>
                                 </li>
@@ -213,7 +210,7 @@
 
                 <%- include("./partials/footer.ejs") -%>
                     <!-- end main -->
-                    <%- include("./partials/scripts.ejs") -%>
+                <%- include("./partials/scripts.ejs") -%>
 
     </body>
 

@@ -6,24 +6,22 @@
 
     <body data-theme="light">
 
-
         <%- include("./partials/nav.ejs") %>
-
-
             <div class="container-fluid" dir="rtl">
                 <div class="d-flex justify-content-start mr-5 mb-3">
-                    <button class="btn  btn-lg btn-info" data-toggle="modal" data-target="#addProjectModal">اضافة مشروع
+                    <button id="newProjectBtn" class="btn btn-lg btn-info" data-toggle="modal"
+                        data-target="#addProjectModal">اضافة مشروع
                         جديد
                     </button>
                 </div>
-                <div class="card card-body text-center">
-                    <h3>رسائل واردة</h3>
+                <div class="card card-body ">
+                    <h3 class="text-center">رسائل واردة</h3>
 
-                    <table class="table">
+                    <table class="table " id="contactMsgsTable">
                         <thead>
-                            <tr class="bg-secondary text-light">
-                                <th>#</th>
-                                <th>الاسم </th>
+                            <tr class="bg-dark text-light">
+                                <th class="">#</th>
+                                <th>الاسم</th>
                                 <th>التاريخ</th>
                                 <th></th>
 
@@ -36,7 +34,7 @@
                                         class="bg-light-success"
                                         <% } %>
                                             >
-                                            <td>
+                                            <td class="">
                                                 <%= i + 1 %>
                                             </td>
                                             <td>
@@ -48,13 +46,13 @@
                                             <td>
                                                 <button data-target="#messageDetailsModal" data-toggle="modal"
                                                     class="btn btn-sm btn-primary mx-1"
-                                                    data-url="/admin/messages/<%= contact_messages[i]._id %>">عرض</a>
+                                                    data-url="/admin/messages/<%= contact_messages[i]._id %>"><i class="fa-regular fa-eye"></i></a>
                                                     <% if (!contact_messages[i].read) { %>
                                                         <form
                                                             action="/admin/messages/<%= contact_messages[i]._id %>/edit"
                                                             method="POST" class="d-inline">
-                                                            <button class="btn btn-sm btn-success ">تأكيد
-                                                                القراءة</button>
+                                                            <button class="btn btn-sm btn-success ">
+                                                               تأكيد </button>
 
                                                         </form>
                                                         <% } %>
@@ -71,15 +69,15 @@
 
                 </div>
 
-                <div class="card card-body text-center">
+                <div class="card card-body ">
 
-                    <h3>المشروعات</h3>
+                    <h3 class="text-center">المشروعات</h3>
 
-                    <table class="table">
-                        <thead>
+                    <table class="table" id="projectTable">
+                        <thead class="bg-dark text-light">
                             <tr>
                                 <th>#</th>
-                                <th>الاسم </th>
+                                <th>المشروع</th>
                                 <th></th>
 
                             </tr>
@@ -95,10 +93,11 @@
                                     </td>
                                     <td>
                                         <a href="/admin/projects/<%= projects[i].id %>"
-                                            class="btn btn-sm btn-primary">عرض</a>
+                                            class="btn btn-sm btn-primary"><i class="fa-regular fa-eye"></i></a>
                                         <form action="/admin/projects/<%= projects[i].slug %>/delete" method="POST"
                                             class="d-inline">
-                                            <button class="btn btn-sm btn-danger">حذف</button>
+                                            <button class="btn btn-sm btn-danger"
+                                            ><i class="fa-regular fa-trash-can"></i></button>
                                         </form>
                                     </td>
                                 </tr>

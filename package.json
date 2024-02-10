@@ -4,8 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "mocha --require esm test/",
-    "i18n:scan": "i18next-scanner --config config/i18next-scanner.config.js"
+    "i18n:scan": "i18next-scanner --config config/i18next-scanner.config.js",
+    "report": "webpack --profile --json > stats.json; webpack-bundle-analyzer ./stats.json"
 
   },
   "author": "",
@@ -38,6 +40,9 @@
     "chai": "^5.0.0",
     "dotenv": "^16.3.2",
     "esm": "^3.2.25",
-    "i18next-scanner": "^4.4.0"
+    "i18next-scanner": "^4.4.0",
+    "webpack": "^5.90.0",
+    "webpack-bundle-analyzer": "^4.10.1",
+    "webpack-cli": "^5.1.4"
   }
 }

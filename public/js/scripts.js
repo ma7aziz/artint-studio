@@ -211,25 +211,26 @@
 			el: '.swiper-pagination',
 			type: 'fraction',
 		},
+		effect : 'fade' ,
 		autoplay: {
-		delay: 4500,
+		delay: 6000,
 		disableOnInteraction: false,
 		},
 		loop: true,
 		loopedSlides: 3,
 		thumbs: {
-        swiper: galleryThumbs
-      }
+        swiper: galleryThumbs,
+      } , 
 	});
 
 	// SLIDER CONTROL
 	var galleryThumbs = new Swiper('.gallery-thumbs', {
-		spaceBetween: 10,
+		spaceBetween: 20,
 		centeredSlides: true,
 		slidesPerView: 3,
 		touchRatio: 0.2,
 		slideToClickedSlide: true,
-			direction: 'vertical',
+		direction: 'horizontal',
 		loop: true,
 		loopedSlides: 3,
 		breakpoints: {
@@ -268,7 +269,7 @@
 	  var items = document.querySelectorAll(el);
 
 	  [].forEach.call(items, function(item) {
-		var customDist = item.getAttribute('dist') * 20 || 120;
+		var customDist = item.getAttribute('dist') * 20 || 40;
 		var centerX = item.offsetLeft + (item.clientWidth/2);
 		var centerY = item.offsetTop + (item.clientHeight/2);
 

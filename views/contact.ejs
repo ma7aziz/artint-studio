@@ -17,8 +17,6 @@
                         <h2 data-text="<%= t('contact') %>">
                             <%= t('contact') %>
                         </h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, placeat possimus? Dolores
-                            aliquid rerum quas.</p>
                     </div>
                     <!-- end inner -->
                     <ul class="social-media">
@@ -38,13 +36,20 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
-                                    <h3>We’d love to hear from you.<br>
-                                        Let's talk about it!</h3>
+                                    <% if(langCookieValue === 'en') { %>
+                                        <h3>We’d love to hear from you.<br>
+                                            Let's talk about it!</h3>
+                                    <% } else { %>
+                                        <h3>نحن هنا للاستماع الي افكارك وتنفيذها .. <br>
+                                            فقط تواصل معنا .
+                                        </h3>
+                                    <% } %>
+                                    
                                 </div>
                                 <!-- end col-12 -->
                                 <div class="col-md-6">
                                     <div class="contact-box">
-                                        <span>Phone :</span>
+                                        <span>  <%= t('phone') %> :</span>
                                         <a href="#">
                                             <%= globals.phoneNumber %>
                                         </a>
@@ -54,7 +59,7 @@
                                 <!-- end col-6 -->
                                 <div class="col-md-6">
                                     <div class="contact-box">
-                                        <span>E-mail :</span>
+                                        <span>  <%= t('email') %> :</span>
                                         <a href="#">
                                             <%= globals.contactEmail %>
                                         </a>
@@ -64,13 +69,11 @@
                                 <!-- end col-6 -->
                                 <div class="col-12">
                                     <div class="contact-box">
-                                        <span>Address :</span>
+                                        <span>  <%= t('address') %> :</span>
                                         <p>
                                             <%= globals.address %>
                                         </p>
-                                        <a href="#" class="map-link" data-toggle="modal" data-target="#map-box">Click
-                                            for
-                                            map</a>
+                                        <a href="#" class="map-link" data-toggle="modal" data-target="#map-box"><%= t('get_map') %></a>
                                     </div>
                                     <!-- end contact-box -->
                                 </div>
@@ -81,32 +84,32 @@
                                     name="contact" 
                                     method="post">
                                         <div class="form-group  col-12">
-                                            <label><span>Your name</span></label>
+                                            <label><span><%= t('name') %></span></label>
                                             <input type="text" name="name" id="name" required>
                                         </div>
                                         <!-- end form-group -->
                                         <div class="form-group col-sm-6 col-12">
-                                            <label><span>Your phone Number</span></label>
+                                            <label><span><%= t('phone') %></span></label>
                                             <input type="text" name="phone" id="phone" required>
                                         </div>
                                         <!-- end form-group -->
                                         <div class="form-group col-sm-6 col-12">
-                                            <label><span>Your e-mail</span></label>
+                                            <label><span><%= t('email') %></span></label>
                                             <input type="text" name="email" id="email" >
                                         </div>
                                         <!-- end form-group -->
                                         <div class="form-group col-12">
-                                            <label><span>Subject</span></label>
+                                            <label><span><%= t('subject') %></span></label>
                                             <input type="text" name="subject" id="subject" required>
                                         </div>
                                         <!-- end form-group -->
                                         <div class="form-group col-12">
-                                            <label><span>Your message</span></label>
+                                            <label><span><%= t('message') %></span></label>
                                             <textarea name="message" id="message" required></textarea>
                                         </div>
                                         <!-- end form-group -->
                                         <div class="form-group col-12">
-                                            <button id="submit" type="submit" name="submit">SUBMIT</button>
+                                            <button id="submit" type="submit" name="submit"><%= t('submit') %></button>
                                         </div>
                                         <!-- end form-group -->
                                     </form>

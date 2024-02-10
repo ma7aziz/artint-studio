@@ -16,6 +16,14 @@
     "identity_breif":"We create captivating brand identities that visually represent your unique essence, leaving a lasting impression on your audience and fostering brand recognition and loyalty." , 
     "learn_more" : "Learn More ", 
     "say_hello"  : "Say Hello " , 
-    "more" : "Show More"
+    "more" : "Show More",
+    "phone" : "Phone Number",
+    "email" : "E-mail" ,
+    "address" : "Address" ,
+    "get_map" : "Click form map",
+    "name" : "Name",
+    "subject" : "Subject"  , 
+    "message" : "Your Message"  , 
+    "submit" : "Submit"
 
 }
