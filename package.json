@@ -7,12 +7,15 @@
     "start": "node server.js",
     "test": "mocha --require esm test/",
     "i18n:scan": "i18next-scanner --config config/i18next-scanner.config.js",
-    "report": "webpack --profile --json > stats.json; webpack-bundle-analyzer ./stats.json"
+    "report": "webpack --profile --json > stats.json; webpack-bundle-analyzer ./stats.json",
+    "netlify:build": "npm install --production"
 
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@netlify/functions": "^2.6.0",
+    "@types/express": "^4.17.21",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
@@ -28,11 +31,13 @@
     "mocha": "^10.2.0",
     "mongoose": "^8.1.0",
     "multer": "^1.4.5-lts.1",
+    "netlify-lambda": "^2.0.16",
     "nodemailer": "^6.9.8",
     "nodemon": "^3.0.2",
     "npm": "^10.3.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
+    "serverless-http": "^3.2.0",
     "sinon": "^17.0.1",
     "slugify": "^1.6.6"
   },

@@ -27,4 +27,3 @@ module.exports = (app) => {
 
     app.use(i18nextMiddleware.handle(i18next));
 };
-
