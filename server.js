@@ -67,4 +67,5 @@ app.use((req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
-exports.handler = serverlessHttp(app);
+
+module.exports.handler = serverlessHttp(app);
