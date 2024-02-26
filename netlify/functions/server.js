@@ -2,15 +2,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
-const mongoose = require('./db');
+const mongoose = require('db');
 const passport = require('passport');
-const configureServer = require('./config/server');
-const configureI18n = require('./config/i18n');
+const configureServer = require('config/server');
+const configureI18n = require('config/i18n');
 const flash = require('express-flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
-const User = require('./schemas/userSchema');
-const langCookieMiddleware = require('./middleware/langCookieValueMiddleware')
+const User = require('schemas/userSchema');
+const langCookieMiddleware = require('middleware/langCookieValueMiddleware')
 const cookieParser = require('cookie-parser')
 const serverlessHttp = require('serverless-http')
 if (process.env.NODE_ENV !== 'production') {
@@ -18,19 +18,19 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Import routes
-const publicRoutes = require('./routes/publicRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const authRoutes = require('./routes/authRoutes');
+const publicRoutes = require('routes/publicRoutes');
+const adminRoutes = require('routes/adminRoutes');
+const authRoutes = require('routes/authRoutes');
 
 // Import global variables
-const globals = require('./globals');
+const globals = require('/globals');
 
 app.locals.globals = globals;
 
 configureServer(app);
 configureI18n(app);
 
-const initializePassport = require('./config/passport');
+const initializePassport = require('config/passport');
 initializePassport(
     passport,
     email => User.findOne({ email: email }).exec(),
